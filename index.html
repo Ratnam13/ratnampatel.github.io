@@ -1,113 +1,86 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ratnam Patel — Mechanical Engineer</title>
-  <meta name="description" content="Portfolio of Ratnam Patel, Mechanical Engineer (M.S., Purdue). CAD/DFM, FEA/CFD, hydraulic systems, testing & validation." />
-  <style>
-    :root{
-      --bg:#0f1320; --card:#151a2b; --ink:#e9eefc; --muted:#b7c0dc;
-      --accent:#6ee7ff; --accent2:#a5b4fc;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
-    a{color:var(--accent);text-decoration:none}
-    a:hover{opacity:.9}
-    .wrap{max-width:980px;margin:auto;padding:24px}
-    header{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;padding:24px;border:1px solid #1e2640;border-radius:14px;background:linear-gradient(180deg,#12172a,transparent)}
-    .id h1{margin:0;font-size:28px}
-    .id p{margin:.2rem 0 0;color:var(--muted)}
-    nav a{margin-left:16px}
-    .grid{display:grid;gap:16px;margin-top:18px}
-    @media(min-width:860px){.grid{grid-template-columns:1.2fr 1fr}}
-    section{background:var(--card);padding:20px;border-radius:14px;border:1px solid #1e2640}
-    h2{margin:0 0 10px;font-size:18px;letter-spacing:.4px}
-    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#1c2440;border:1px solid #243057;color:var(--muted);margin:4px 6px 0 0;font-size:12px}
-    .proj{display:grid;gap:12px}
-    .proj .card{border:1px solid #1e2640;background:#12172a;border-radius:12px;padding:14px}
-    .card h3{margin:.2rem 0 .4rem;font-size:16px}
-    .meta{color:var(--muted);font-size:13px}
-    .btn{display:inline-block;margin-top:8px;padding:8px 12px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#081225;font-weight:600}
-    footer{color:var(--muted);text-align:center;margin:28px 0 12px}
-    ul{margin:.4rem 0 .2rem 1rem}
-    li{margin:.25rem 0}
-  </style>
+  <meta charset="utf-8">
+  <title>Ratnam Patel | Mechanical Engineer</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Portfolio of Ratnam Patel — CAD/FEA/CFD, pump & rotating machinery, validation and DFM.">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="id">
-        <h1>Ratnam Patel</h1>
-        <p>M.S. Mechanical Engineering, Purdue • Livonia, MI • <a href="mailto:ratnampatel13@gmail.com">ratnampatel13@gmail.com</a> • <a href="https://linkedin.com/in/ratnam-patel" target="_blank" rel="noopener">LinkedIn</a></p>
-        <p class="meta">U.S. Person (Permanent Resident) • CAD/DFM • FEA/CFD • Hydraulic Systems • Testing & Validation</p>
+  <header>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
+      <div>
+        <div class="badge">U.S. Person (Permanent Resident)</div>
+        <div class="hero">
+          <h1>Ratnam Patel</h1>
+          <p>M.S. Mechanical Engineering, Purdue — CAD · FEA/CFD · Testing · DFM</p>
+        </div>
       </div>
       <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Focus</a>
         <a href="#projects">Projects</a>
-        <a href="#resume">Resume</a>
-        <a href="#contact">Contact</a>
+        <a href="#skills">Skills</a>
+        <a href="#about">About</a>
+        <a href="mailto:ratnampatel13@gmail.com">Email</a>
+        <a href="https://linkedin.com/in/ratnam-patel" target="_blank" rel="noopener">LinkedIn</a>
       </nav>
-    </header>
-
-    <div class="grid">
-      <section id="about">
-        <h2>About</h2>
-        <p>Mechanical Engineer with hands-on work across CAD (CATIA V5, SolidWorks, Creo), FEA/CFD (ANSYS Mechanical/Fluent, FreeFEM++), and lab validation. At Purdue’s Maha Fluid Power Research Center, I designed/optimized hydraulic pumps, ran DOE-driven experiments, built instrumented test rigs, and linked simulations to test data. I enjoy turning ambiguous requirements into manufacturable, test-verified hardware.</p>
-      </section>
-
-      <section id="skills">
-        <h2>Focus Areas</h2>
-        <div>
-          <span class="pill">CAD & GD&T (ASME Y14.5)</span>
-          <span class="pill">Design for Manufacturability</span>
-          <span class="pill">Structural FEA & CFD</span>
-          <span class="pill">Hydraulic systems & testing</span>
-          <span class="pill">MATLAB / Python / C++</span>
-          <span class="pill">DOE • Root-cause analysis</span>
-        </div>
-      </section>
     </div>
+  </header>
 
+  <main class="container">
     <section id="projects">
-      <h2>Projects</h2>
-      <div class="proj-list">
-        <article>
-        <h3>Hydraulic Vane Pump Optimization</h3>
-        <p>DOE-guided optimization of dual-lip vane pump geometry with FEA/CFD and experimental validation.</p>
-        <a href="projects/vane_pump.html">Read More</a>
-      </article>
-      <article>
-      <h3>Journal Bearing Tribology</h3>
-      <p>Film thickness and contact stress analysis in journal bearings to improve reliability of rotating machinery.</p>
-      <a href="projects/journal_bearing.html">Read More</a>
-    </article>
-    <article>
-      <h3>Spacecraft Re-entry Analysis</h3>
-      <p>Thermal–structural trade-off study of insulation and ablation using ANSYS/OpenFOAM.</p>
-      <a href="projects/spacecraft_reentry.html">Read More</a>
-    </article>
-  </div>
-</section>
+      <h2 class="section-title">Selected Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <img src="assets/images/vane_pump_hero.png" alt="Vane pump optimization graphic">
+          <h3>Hydraulic Vane Pump Optimization</h3>
+          <p>DOE-guided geometry optimization with FEA/CFD + lab validation; reduced flow ripple and improved volumetric efficiency.</p>
+          <a class="button" href="projects/vane_pump.html">Read more</a>
+        </article>
 
-    <section id="resume">
-      <h2>Resume</h2>
-      <p><a class="btn" href="docs/Resume_Ratnam_Patel.pdf" target="_blank" rel="noopener">Download Resume (PDF)</a></p>
-      <ul>
-        <li><strong>CAD:</strong> CATIA V5, SolidWorks, Creo; GD&amp;T</li>
-        <li><strong>Simulation:</strong> ANSYS Mechanical/Fluent, FreeFEM++; structural FEA, CFD, thermal-fluid coupling</li>
-        <li><strong>Testing:</strong> Hydraulic rigs, instrumentation, DAQ, prototype validation</li>
-        <li><strong>Programming:</strong> MATLAB, Python, C++</li>
-      </ul>
+        <article class="card">
+          <img src="assets/images/journal_bearing_hero.png" alt="Journal bearing film thickness plot">
+          <h3>Journal Bearing Tribology</h3>
+          <p>Hydrodynamic lubrication study—film thickness, wear/contact stress trends for reliability in rotating machinery.</p>
+          <a class="button" href="projects/journal_bearing.html">Read more</a>
+        </article>
+
+        <article class="card">
+          <img src="assets/images/reentry_hero.png" alt="Thermal response of TPS during re-entry">
+          <h3>Spacecraft Re-entry Analysis</h3>
+          <p>Thermal–structural load assessment and insulation trade-offs using ANSYS/OpenFOAM under extreme heating.</p>
+          <a class="button" href="projects/spacecraft_reentry.html">Read more</a>
+        </article>
+      </div>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:ratnampatel13@gmail.com">ratnampatel13@gmail.com</a> • LinkedIn: <a href="https://linkedin.com/in/ratnam-patel" target="_blank" rel="noopener">/in/ratnam-patel</a></p>
+    <section id="skills">
+      <h2 class="section-title">Core Skills</h2>
+      <div class="grid">
+        <div class="card"><h3>CAD & Drawings</h3><p>CATIA V5, SolidWorks, Creo · GD&T (ASME Y14.5) · tolerance analysis</p></div>
+        <div class="card"><h3>Simulation</h3><p>ANSYS Mechanical/Fluent, FreeFEM++ · structural FEA, CFD, thermal-fluid coupling</p></div>
+        <div class="card"><h3>Testing & Prototyping</h3><p>Hydraulic rigs, instrumentation/DAQ, regression testing, failure diagnostics</p></div>
+        <div class="card"><h3>Programming</h3><p>MATLAB, Python, C++ · Simulink (drive-cycle pump model)</p></div>
+      </div>
     </section>
 
-    <footer>© <script>document.write(new Date().getFullYear())</script> Ratnam Patel</footer>
-  </div>
+    <section id="about">
+      <h2 class="section-title">About</h2>
+      <div class="prose">
+        <p>Mechanical Engineer with hands-on design, simulation, and validation experience across pumps and rotating machinery. At Purdue’s Maha Fluid Power Research Center I combined CAD/FEA/CFD with instrumented testing to optimize performance and durability. I enjoy closing the loop between models and hardware, and building clear documentation others can repeat.</p>
+        <p><strong>Location:</strong> Livonia, MI · <strong>Email:</strong> <a href="mailto:ratnampatel13@gmail.com">ratnampatel13@gmail.com</a></p>
+      </div>
+    </section>
+
+    <hr>
+    <p class="prose">Want a quick overview? I’m happy to share a one-page resume on request.</p>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+      <small>© 2025 Ratnam Patel</small>
+      <small><a href="https://github.com/Ratnam13/ratnampatel.github.io">View source on GitHub</a></small>
+    </div>
+  </footer>
 </body>
 </html>
