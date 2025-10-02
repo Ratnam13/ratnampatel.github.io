@@ -17,43 +17,123 @@
           <p>M.S. Mechanical Engineering, Purdue — CAD · FEA/CFD · Testing · DFM</p>
         </div>
       </div>
-      <nav>
-        <a href="#projects">Projects</a>
+      <nav class="topnav">
+        <a href="#featured">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#about">About</a>
         <a href="mailto:ratnampatel13@gmail.com">Email</a>
-        <a href="https://linkedin.com/in/ratnam-patel" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://linkedin.com/in/ratnam-patel" target="_blank">LinkedIn</a>
       </nav>
     </div>
   </header>
 
   <main class="container">
-    <section id="projects">
-      <h2 class="section-title">Selected Projects</h2>
-      <div class="grid">
-        <article class="card">
-          <img src="assets/images/vane_pump_hero.jpg" alt="Vane pump optimization graphic">
-          <h3>Hydraulic Vane Pump Optimization</h3>
-          <p>DOE-guided geometry optimization with FEA/CFD + lab validation; reduced flow ripple and improved volumetric efficiency.</p>
-          <a class="button" href="projects/vane_pump.html">Read more</a>
-        </article>
+    <section id="featured" class="section">
+  <h2>Featured Projects</h2>
+  <p class="subtle">Flagship work combining CAD/FEA/CFD with lab validation and clear outcomes.</p>
 
-        <article class="card">
-          <img src="assets/images/journal_bearing_hero.png" alt="Journal bearing film thickness plot">
-          <h3>Journal Bearing Tribology</h3>
-          <p>Hydrodynamic lubrication study—film thickness, wear/contact stress trends for reliability in rotating machinery.</p>
-          <a class="button" href="projects/journal_bearing.html">Read more</a>
-        </article>
+  <div class="card-grid">
+    <!-- 1. Hydraulic Vane Pump Optimization -->
+    <article class="card">
+      <img src="/assets/images/vane-pump.jpg" alt="Hydraulic vane pump cam ring and vane geometry with ripple plot">
+      <h3>Hydraulic Vane Pump Optimization</h3>
+      <p>DOE-guided geometry optimization with FEA/CFD + lab validation; reduced flow ripple and improved volumetric efficiency.</p>
+      <ul class="tags"><li>CATIA V5</li><li>ANSYS</li><li>CFD/FEA</li><li>DOE</li><li>Testing</li></ul>
+      <a class="btn" href="/projects/vane-pump.html">Read more</a>
+    </article>
 
-        <article class="card">
-          <img src="assets/images/reentry_hero.png" alt="Thermal response of TPS during re-entry">
-          <h3>Spacecraft Re-entry Analysis</h3>
-          <p>Thermal–structural load assessment and insulation trade-offs using ANSYS/OpenFOAM under extreme heating.</p>
-          <a class="button" href="projects/spacecraft_reentry.html">Read more</a>
-        </article>
-      </div>
-    </section>
+    <!-- 2. Journal Bearing Tribology -->
+    <article class="card">
+      <img src="/assets/images/journal-bearing.jpg" alt="Hydrodynamic journal bearing film thickness map">
+      <h3>Journal Bearing Tribology</h3>
+      <p>Hydrodynamic lubrication—film thickness, wear/contact stress trends for reliability in rotating machinery.</p>
+      <ul class="tags"><li>CFD</li><li>Tribology</li><li>FEA</li></ul>
+      <a class="btn" href="/projects/journal-bearing.html">Read more</a>
+    </article>
 
+    <!-- 3. TPS Re-entry -->
+    <article class="card">
+      <img src="/assets/images/tps-reentry.jpg" alt="Thermal response of TPS during re-entry showing hot spots">
+      <h3>TPS Re-entry Thermal–Structural Analysis</h3>
+      <p>Thermal–structural load assessment and insulation trade-offs with ANSYS/OpenFOAM under extreme heating.</p>
+      <ul class="tags"><li>ANSYS</li><li>OpenFOAM</li><li>Thermal</li></ul>
+      <a class="btn" href="/projects/tps-reentry.html">Read more</a>
+    </article>
+
+    <!-- 4. Axial Piston Pump (Simulink) -->
+    <article class="card">
+      <img src="/assets/images/axial-piston-simulink.jpg" alt="Simulink model of axial piston pump with leakage blocks">
+      <h3>Axial Piston Pump — Simulink Drive-Cycle Model</h3>
+      <p>System-level model with leakage representation to predict drive-cycle performance and kinematics.</p>
+      <ul class="tags"><li>Simulink</li><li>Hydraulics</li><li>Systems</li></ul>
+      <a class="btn" href="/projects/axial-piston-simulink.html">Read more</a>
+    </article>
+
+    <!-- 5. Microfluidics Separation -->
+    <article class="card">
+      <img src="/assets/images/microfluidics-sep.jpg" alt="Microfluidic channel with streamline patterns for separation">
+      <h3>Microfluidic Cell Separation — CFD & Design</h3>
+      <p>Concept to CFD validation of microchannel geometry for inertial separation and pressure drop targets.</p>
+      <ul class="tags"><li>CFD</li><li>OpenFOAM/ANSYS</li><li>Design</li></ul>
+      <a class="btn" href="/projects/microfluidics-sep.html">Read more</a>
+    </article>
+
+    <!-- 6. Cyclone Separator -->
+    <article class="card">
+      <img src="/assets/images/cyclone-separator.jpg" alt="Cyclone separator with swirling flow visualization">
+      <h3>Cyclone Separator — Pressure Drop & Efficiency</h3>
+      <p>Modeled swirl/pressure loss trade-offs; evaluated separation performance vs. geometry changes.</p>
+      <ul class="tags"><li>CFD</li><li>FreeFEM++/ANSYS</li><li>Fluids</li></ul>
+      <a class="btn" href="/projects/cyclone-separator.html">Read more</a>
+    </article>
+  </div>
+</section>
+
+
+    <section id="more-projects" class="section">
+  <h2>More Projects</h2>
+  <p class="subtle">Smaller studies and coursework demonstrating breadth and rigor.</p>
+
+  <div class="card-grid compact">
+    <!-- Vortex Shedding CFD -->
+    <article class="card">
+      <img src="/assets/images/vortex-shedding.jpg" alt="Unsteady wake with vortex shedding behind square cylinder">
+      <h3>Vortex Shedding CFD — Strouhal Scaling</h3>
+      <p>Unsteady flow around a square obstacle; validated Strouhal trends across Re.</p>
+      <ul class="tags"><li>CFD</li><li>FreeFEM++</li></ul>
+      <a class="btn" href="/projects/vortex-shedding.html">Read more</a>
+    </article>
+
+    <!-- Spacecraft DOP -->
+    <article class="card">
+      <img src="/assets/images/dop-gnss.jpg" alt="GNSS skyplot / GDOP heat map">
+      <h3>Spacecraft DOP Analysis</h3>
+      <p>Computed GDOP/PDOP for space mission geometry; assessed visibility and measurement quality.</p>
+      <ul class="tags"><li>MATLAB</li><li>Astro</li></ul>
+      <a class="btn" href="/projects/dop-analysis.html">Read more</a>
+    </article>
+
+    <!-- Tribology labs roll-up -->
+    <article class="card">
+      <img src="/assets/images/tribology-labs.jpg" alt="Tribometer setup and roughness measurement">
+      <h3>Tribology Labs — Contact, Roughness & Friction</h3>
+      <p>Experimental studies on surface roughness, contact mechanics, and friction models (ME 556).</p>
+      <ul class="tags"><li>Experiments</li><li>Tribology</li></ul>
+      <a class="btn" href="/projects/tribology-labs.html">Read more</a>
+    </article>
+
+    <!-- AAE mini-studies roll-up -->
+    <article class="card">
+      <img src="/assets/images/aae-studies.jpg" alt="Montage of CFD/FEA homework plots">
+      <h3>AAE Mini-studies (selected)</h3>
+      <p>Short, focused analyses (heat conduction, panel methods, solver comparisons) with verification.</p>
+      <ul class="tags"><li>CFD/FEA</li><li>MATLAB/Python</li></ul>
+      <a class="btn" href="/projects/aae-studies.html">Read more</a>
+    </article>
+  </div>
+</section>
+
+    
     <section id="skills">
       <h2 class="section-title">Core Skills</h2>
       <div class="grid">
