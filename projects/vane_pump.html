@@ -3,34 +3,52 @@
 <head>
   <meta charset="utf-8">
   <title>Hydraulic Vane Pump Optimization | Ratnam Patel</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="DOE-guided optimization of dual-lip vane pump with FEA/CFD and lab validation.">
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
   <header>
-    <a href="../index.html">← Back to Home</a>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
+      <nav><a href="../index.html">← Back</a></nav>
+      <nav>
+        <a href="mailto:ratnampatel13@gmail.com">Email</a>
+        <a href="https://linkedin.com/in/ratnam-patel" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+    </div>
   </header>
-  <main>
+
+  <main class="container prose">
     <h1>Hydraulic Vane Pump Optimization</h1>
-    <p><strong>Tools:</strong> CATIA V5, ANSYS Mechanical/Fluent, FreeFEM++, MATLAB</p>
-    <p>
-      In my graduate research at Purdue’s Maha Fluid Power Research Center, I designed and optimized
-      dual-lip vane pump components under high-pressure operating conditions. Using DOE-driven optimization,
-      I achieved up to <strong>25.7% reduction in flow ripple</strong> and <strong>8% improvement in volumetric efficiency</strong>
-      compared to the industry reference cam-ring profile.
-    </p>
+    <p><strong>Role:</strong> Graduate Research Assistant, Maha Fluid Power Research Center (Purdue)</p>
+    <p><strong>Tools:</strong> CATIA V5, ANSYS Mechanical/Fluent, FreeFEM++, MATLAB, DAQ instrumentation</p>
+
+    <h3>Context</h3>
+    <p>Designed and optimized dual-lip vane pump components operating under high-pressure conditions. Objective was to reduce flow ripple and volumetric losses while maintaining structural integrity and manufacturability.</p>
+
+    <h3>Approach</h3>
+    <ul>
+      <li>Modeled stator/cam-ring geometry in CATIA; applied GD&amp;T and tolerance stack-ups.</li>
+      <li>Performed <em>structural FEA</em> for stress/deflection limits and <em>CFD</em> for leakage/flow oscillations; evaluated thermal-fluid coupling where relevant.</li>
+      <li>Designed DOEs in MATLAB to explore geometry and operating parameters; multi-objective trade-offs for ripple vs. efficiency.</li>
+      <li>Built and operated instrumented test rigs; integrated sensors and DAQ to correlate simulations with experimental data and diagnose failure modes.</li>
+    </ul>
+
+    <h3>Results</h3>
+    <ul>
+      <li>Up to <strong>25.7% reduction</strong> in flow disturbance (ripple) vs. reference cam-ring geometry.</li>
+      <li><strong>~8% improvement</strong> in volumetric efficiency under targeted operating points.</li>
+      <li>Deliverables: validated design recommendations, regression test scripts, and documentation for reproducibility.</li>
+    </ul>
+
     <figure>
-      <img src="../assets/images/vane_pump_fig1.png" alt="Vane pump optimization plot" style="max-width:100%">
-      <figcaption>Optimization trend showing reduced flow disturbance.</figcaption>
+      <img src="../assets/images/vane_pump_hero.png" alt="Optimization trend plot for vane pump">
+      <figcaption>Optimization trend indicating ripple reduction across DOE samples.</figcaption>
     </figure>
-    <p>
-      I also developed and operated hydraulic test rigs with instrumentation and data acquisition,
-      validating simulation predictions with experimental data. This gave me hands-on exposure to both
-      failure diagnostics and manufacturability assessments.
-    </p>
-    <p><a href="../docs/RatnamPatel_MS_Thesis.pdf" target="_blank">Read full thesis →</a></p>
+
+    <p><a class="button" href="../assets/docs/RatnamPatel_MS_Thesis.pdf" target="_blank">Optional: read thesis section</a></p>
   </main>
-  <footer>
-    <p>© 2025 Ratnam Patel</p>
-  </footer>
+
+  <footer><div class="container"><small>© 2025 Ratnam Patel</small></div></footer>
 </body>
 </html>
