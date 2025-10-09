@@ -1,54 +1,170 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Hydraulic Vane Pump Optimization | Ratnam Patel</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="DOE-guided optimization of dual-lip vane pump with FEA/CFD and lab validation.">
-  <link rel="stylesheet" href="../style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dual-Lip Balanced Vane Pump — Simulation-Integrated Optimization | Ratnam Patel</title>
+
+  <meta name="description" content="A simulation-integrated optimization workflow for cam-ring and groove design in a dual-lip balanced vane pump using a Multics-based lumped-parameter model and multi-objective optimization." />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Dual-Lip Balanced Vane Pump — Simulation-Integrated Optimization" />
+  <meta property="og:description" content="Geometry → Multics simulation → post-processing workflow for cam-ring and groove design; results summarized across operating conditions." />
+  <!-- <meta property="og:image" content="../assets/images/vane_pump_hero.jpg" /> -->
+
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
-  <header>
-    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
-      <nav><a href="../index.html">← Back</a></nav>
-      <nav>
-        <a href="mailto:ratnampatel13@gmail.com">Email</a>
-        <a href="https://linkedin.com/in/ratnam-patel" target="_blank" rel="noopener">LinkedIn</a>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a class="brand" href="../index.html">Ratnam Patel</a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
       </nav>
     </div>
   </header>
 
-  <main class="container prose">
-    <h1>Hydraulic Vane Pump Optimization</h1>
-    <p><strong>Role:</strong> Graduate Research Assistant, Maha Fluid Power Research Center (Purdue)</p>
-    <p><strong>Tools:</strong> CATIA V5, ANSYS Mechanical/Fluent, FreeFEM++, MATLAB, DAQ instrumentation</p>
+  <main id="main">
+    <!-- Hero -->
+    <section class="section" aria-labelledby="title">
+      <div class="container">
+        <h1 id="title">Dual-Lip Balanced Vane Pump — Simulation-Integrated Optimization</h1>
+        <p class="lead">
+          A reproducible pipeline linking <strong>cam-ring & port-groove geometry</strong> to a
+          <strong>Multics</strong> lumped-parameter simulation and structured post-processing, enabling
+          multi-objective optimization of <em>volumetric efficiency</em> and <em>flow ripple</em>.
+        </p>
 
-    <h3>Context</h3>
-    <p>Designed and optimized dual-lip vane pump components operating under high-pressure conditions. Objective was to reduce flow ripple and volumetric losses while maintaining structural integrity and manufacturability.</p>
+        <figure class="hero-media">
+          <div class="ph ph--banner" data-ph="Hero: cam-ring + groove optimization (placeholder)"></div>
+          <figcaption>High-level view of the geometry→simulation→post-processing workflow (placeholder).</figcaption>
+        </figure>
+      </div>
+    </section>
 
-    <h3>Approach</h3>
-    <ul>
-      <li>Modeled stator/cam-ring geometry in CATIA; applied GD&amp;T and tolerance stack-ups.</li>
-      <li>Performed <em>structural FEA</em> for stress/deflection limits and <em>CFD</em> for leakage/flow oscillations; evaluated thermal-fluid coupling where relevant.</li>
-      <li>Designed DOEs in MATLAB to explore geometry and operating parameters; multi-objective trade-offs for ripple vs. efficiency.</li>
-      <li>Built and operated instrumented test rigs; integrated sensors and DAQ to correlate simulations with experimental data and diagnose failure modes.</li>
-    </ul>
+    <!-- Summary -->
+    <section class="section" aria-labelledby="summary">
+      <div class="container">
+        <h2 id="summary">Project Summary</h2>
+        <p>
+          This work replaces intuition-driven, prototype-heavy iteration with a computational
+          design approach. A spline-based cam-ring parameterization and bounded groove-length
+          scaling feed a coupled, lumped-parameter solver. Designs are evaluated across multiple
+          operating conditions and progressed with a population-based optimizer to expose
+          trade-offs between efficiency and ripple.
+        </p>
+        <ul class="meta">
+          <li>Affiliation: Maha Fluid Power Research Center, Purdue University</li>
+          <li>Focus: Pump performance via geometry &amp; timing</li>
+          <li>Deliverable: Optimization-ready workflow + validated designs</li>
+        </ul>
+      </div>
+    </section>
 
-    <h3>Results</h3>
-    <ul>
-      <li>Up to <strong>25.7% reduction</strong> in flow disturbance (ripple) vs. reference cam-ring geometry.</li>
-      <li><strong>~8% improvement</strong> in volumetric efficiency under targeted operating points.</li>
-      <li>Deliverables: validated design recommendations, regression test scripts, and documentation for reproducibility.</li>
-    </ul>
+    <!-- Objectives -->
+    <section class="section" aria-labelledby="objectives">
+      <div class="container">
+        <h2 id="objectives">Objectives</h2>
+        <ul class="tag-list" aria-label="Objectives">
+          <li>Improve volumetric efficiency</li>
+          <li>Reduce outlet flow ripple</li>
+          <li>Evaluate across multiple operating conditions</li>
+          <li>Use a formal, multi-objective optimizer</li>
+        </ul>
+      </div>
+    </section>
 
-    <figure>
-      <img src="../assets/images/vane_pump_hero.png" alt="Optimization trend plot for vane pump">
-      <figcaption>Optimization trend indicating ripple reduction across DOE samples.</figcaption>
-    </figure>
+    <!-- Method -->
+    <section class="section" aria-labelledby="method">
+      <div class="container">
+        <h2 id="method">Method &amp; Workflow</h2>
+        <ol class="stack">
+          <li><strong>Cam-ring parameterization:</strong> 12-point spline on the half-ring with variable radii and interior angles; C¹ continuity enforced, curvature changes bounded for manufacturability.</li>
+          <li><strong>Groove timing control:</strong> Inlet, primary-delivery, and compensation grooves scaled by angular span (start angle fixed) to tune port timing without altering depth/width.</li>
+          <li><strong>Simulation:</strong> Multics lumped-parameter model with fluid, forces, lubrication/contact sub-modules; reduced model used for optimization runs, full model for validation.</li>
+          <li><strong>Optimization:</strong> Multi-objective GA (MOGA-II) with feasibility filtering, variable bounds, and cross-condition scoring.</li>
+          <li><strong>Post-processing:</strong> Chamber volumes/pressures/flows extracted; metrics computed for efficiency and ripple; designs classified and compared to a reference.</li>
+        </ol>
 
-    <p><a class="button" href="../assets/docs/RatnamPatel_MS_Thesis.pdf" target="_blank">Optional: read thesis section</a></p>
+        <div class="grid">
+          <figure>
+            <div class="ph ph--thumb" data-ph="Block diagram of Multics model (placeholder)"></div>
+            <figcaption>Model architecture and inter-module data flow (placeholder).</figcaption>
+          </figure>
+          <figure>
+            <div class="ph ph--thumb" data-ph="Optimization workflow (placeholder)"></div>
+            <figcaption>Automation chain from geometry to Pareto analysis (placeholder).</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Findings -->
+    <section class="section" aria-labelledby="results">
+      <div class="container">
+        <h2 id="results">Key Findings</h2>
+        <ul class="stack">
+          <li>Feasibility-guided filtering (displacement → geometry → angle/radius) sharply reduces simulation waste while preserving viable diversity.</li>
+          <li>Cam-ring curvature and groove timing jointly control pressure transitions, affecting both efficiency and ripple.</li>
+          <li>Representative optimized designs show measurable gains versus a reference under single- and multi-condition studies, with full-model validation used to verify trends.</li>
+        </ul>
+
+        <div class="grid">
+          <figure>
+            <div class="ph ph--thumb" data-ph="Pareto front (placeholder)"></div>
+            <figcaption>Example Pareto front illustrating efficiency–ripple trade-offs (placeholder).</figcaption>
+          </figure>
+          <figure>
+            <div class="ph ph--thumb" data-ph="Cam-ring comparison (placeholder)"></div>
+            <figcaption>Reference vs. optimized cam-ring profile comparison (placeholder).</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contributions -->
+    <section class="section" aria-labelledby="contrib">
+      <div class="container">
+        <h2 id="contrib">My Contributions</h2>
+        <ul class="stack">
+          <li>Implemented spline-based cam-ring generator and groove-timing parameterization with manufacturability/ordering constraints.</li>
+          <li>Integrated Multics runs with pre/post-processing scripts for reproducible design sweeps and optimization loops.</li>
+          <li>Built classification and metric reporting (efficiency, ripple) to compare candidate designs; validated selected designs with higher-fidelity models.</li>
+          <li>Maintained data hygiene, unit-style checks for geometry consistency, and run logs for traceability.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Technical Skills -->
+    <section class="section" aria-labelledby="skills">
+      <div class="container">
+        <h2 id="skills">Technical Skills Used</h2>
+        <ul class="tag-list" aria-label="Skills used">
+          <li>Multics (LP simulation)</li>
+          <li>MATLAB (geometry &amp; post-processing)</li>
+          <li>C++ (simulation integration)</li>
+          <li>Optimization (MOGA-II)</li>
+          <li>Design of Experiments</li>
+          <li>Data analysis &amp; visualization</li>
+          <li>Scientific reporting &amp; validation</li>
+        </ul>
+      </div>
+    </section>
   </main>
 
-  <footer><div class="container"><small>© 2025 Ratnam Patel</small></div></footer>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Ratnam Patel.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
