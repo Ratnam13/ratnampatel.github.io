@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Surrogate Modeling and Optimization Framework | Ratnam Patel</title>
+
+  <meta name="description" content="Development of surrogate models for design optimization—covering sampling strategies, Kriging/RBF construction, validation, and surrogate-assisted optimization using Expected Improvement and LCB." />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Surrogate Modeling and Optimization Framework" />
+  <meta property="og:description" content="Design of Experiments, surrogate model construction, and adaptive optimization using Kriging and Expected Improvement." />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a class="brand" href="../index.html">Ratnam Patel</a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <h1>Surrogate Modeling and Optimization Framework</h1>
+        <p class="lead">
+          A three-stage framework covering design of experiments, surrogate model construction,
+          and surrogate-assisted optimization. Implemented and validated in Python (NumPy,
+          SciPy, SMT, and Pymoo) to illustrate the transition from sampling to adaptive design decisions.
+        </p>
+        <figure class="hero-media">
+          <div class="ph ph--banner" data-ph="Hero: surrogate modeling workflow (placeholder)"></div>
+          <figcaption>Workflow overview from sampling → model construction → optimization (placeholder).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Overview & Motivation</h2>
+        <p>
+          Surrogate modeling offers a tractable alternative to direct high-fidelity simulation.
+          The framework developed here demonstrates sampling strategies, model building
+          and validation, and ultimately surrogate-based optimization—key elements for
+          reducing computational cost in complex engineering design (e.g., hydraulic-pump geometry optimization).
+        </p>
+      </div>
+    </section>
+
+    <!-- A. DOE -->
+    <section class="section">
+      <div class="container">
+        <h2>A. Sampling &amp; Design of Experiments</h2>
+        <p>
+          Implemented and compared multiple sampling schemes:
+          <strong>Full Factorial, Latin Hypercube Sampling, Halton,</strong> and <strong>Sobol Sequences</strong>.
+          Evaluated uniformity using φₚ-criterion discrepancy and visual scatter for 1-D and 2-D test
+          functions such as <em>sin x/x</em> and Branin. Demonstrated how low-discrepancy sequences
+          improve uniform coverage with fewer points.
+        </p>
+        <figure>
+          <div class="ph ph--thumb" data-ph="LHS vs Halton samples (placeholder)"></div>
+          <figcaption>Comparison of Latin Hypercube and Halton samples in 2D (placeholder).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- B. Surrogate Construction -->
+    <section class="section">
+      <div class="container">
+        <h2>B. Surrogate Model Construction &amp; Validation</h2>
+        <p>
+          Built surrogate models for analytical benchmarks (Currin, Branin, Himmelblau) using:
+          <strong>Kriging (Gaussian process regression)</strong>,
+          <strong>Radial Basis Functions (RBF)</strong>,
+          and <strong>Polynomial Response Surfaces (PRS)</strong>.
+          Hyperparameters were optimized via maximum likelihood estimation.
+          Models were compared via Leave-One-Out CV error, R², and visual residual plots.
+        </p>
+        <ul class="meta">
+          <li>LOOCV error reduced by > 90 % when switching from PRS to Kriging.</li>
+          <li>Correlation length in Kriging tuned via θ-optimization improves smoothness vs. overfitting.</li>
+          <li>RBF with cubic kernel yields robust interpolation across sparse designs.</li>
+        </ul>
+        <div class="grid">
+          <figure><div class="ph ph--thumb" data-ph="Kriging fit (placeholder)"></div><figcaption>Kriging prediction and residuals on Branin function (placeholder).</figcaption></figure>
+          <figure><div class="ph ph--thumb" data-ph="RBF vs PRS comparison (placeholder)"></div><figcaption>RBF vs Polynomial model performance (placeholder).</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- C. Surrogate-based Optimization -->
+    <section class="section">
+      <div class="container">
+        <h2>C. Surrogate-Based Optimization &amp; Adaptive Sampling</h2>
+        <p>
+          Extended the framework into optimization by integrating acquisition functions:
+          <strong>Expected Improvement (EI)</strong> and
+          <strong>Lower Confidence Bound (LCB)</strong>.
+          Used Pymoo’s sampling and constraint handling to balance exploitation–exploration on
+          multi-modal surfaces (Currin, Branin). Demonstrated adaptive infill that iteratively
+          refines promising regions, reducing true evaluations by ~70 % vs. uniform sampling.
+        </p>
+        <div class="grid">
+          <figure><div class="ph ph--thumb" data-ph="EI acquisition (placeholder)"></div><figcaption>Expected-Improvement map showing exploration–exploitation balance (placeholder).</figcaption></figure>
+          <figure><div class="ph ph--thumb" data-ph="Adaptive infill convergence (placeholder)"></div><figcaption>Adaptive infill convergence reducing evaluation count (placeholder).</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Key Findings</h2>
+        <ul class="stack">
+          <li>Low-discrepancy DoE methods (Halton, Sobol) give best coverage for surrogate training.</li>
+          <li>Kriging provides superior accuracy for smooth, low-dimensional functions; RBF is robust for scattered data.</li>
+          <li>Adaptive infill with EI accelerates convergence toward global minima while reducing evaluations.</li>
+          <li>The full framework demonstrates an end-to-end surrogate-assisted optimization loop suitable for high-fidelity engineering workflows.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>My Contributions</h2>
+        <ul class="stack">
+          <li>Implemented space-filling sampling, φₚ evaluation, and coverage visualization.</li>
+          <li>Built surrogate models (Kriging, RBF, PRS) with automated hyperparameter tuning and LOOCV metrics.</li>
+          <li>Integrated acquisition functions (EI, LCB) for surrogate-based optimization using Pymoo.</li>
+          <li>Developed scripts for adaptive sampling and Pareto-like performance comparison between acquisition strategies.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Technical Skills Used</h2>
+        <ul class="tag-list">
+          <li>Python (NumPy, SciPy, SMT, Pymoo, Matplotlib)</li>
+          <li>Design of Experiments &amp; Sampling (LHS, Halton, Sobol)</li>
+          <li>Surrogate Modeling (Kriging, RBF, PRS)</li>
+          <li>Cross-Validation &amp; Error Analysis</li>
+          <li>Adaptive Sampling &amp; Acquisition Functions (EI, LCB)</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p>&copy; <span id="year"></span> Ratnam Patel.</p></div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
