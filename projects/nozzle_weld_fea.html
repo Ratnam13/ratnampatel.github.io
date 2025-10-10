@@ -1,20 +1,170 @@
-<article class="project-card" role="listitem">
-  <div class="ph ph--thumb" data-ph="Pressure-vessel FEA (placeholder)"></div>
-  <div class="project-body">
-    <h3>
-      <a href="projects/nozzle_weld_fea.html">
-        Finite Element Analysis of Welded Pressure-Vessel Nozzle
-      </a>
-    </h3>
-    <p>
-      Performed finite-element stress analysis of welded nozzle joints under agitator and 
-      internal pressure loads using ANSYS. Validated weld integrity against ASME Section VIII 
-      criteria and correlated results with inspection data during internship at Viram Technologies.
-    </p>
-    <ul class="meta">
-      <li>ANSYS</li>
-      <li>FEA</li>
-      <li>ASME Compliance</li>
-    </ul>
-  </div>
-</article>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Finite Element Analysis of Welded Pressure-Vessel Nozzle | Ratnam Patel</title>
+
+  <meta name="description" content="Finite-element stress analysis of a welded pressure-vessel nozzle under agitator and internal pressure loading, conducted under ASME Section VIII compliance. Includes CAD modeling, mesh refinement, and validation through equilibrium and inspection data." />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Finite Element Analysis of Welded Pressure-Vessel Nozzle" />
+  <meta property="og:description" content="ANSYS-based FEA of welded nozzle joints under agitator loadings, performed for ASME pressure-vessel compliance during internship at Viram Technologies." />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a class="brand" href="../index.html">Ratnam Patel</a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Title / Hero -->
+    <section class="section" aria-labelledby="title">
+      <div class="container">
+        <h1 id="title">Finite Element Analysis of Welded Pressure-Vessel Nozzle</h1>
+        <p class="lead">
+          Conducted finite-element stress analysis of a welded nozzle–flange joint on a pressure vessel subjected to
+          agitator-induced loading and internal pressure, under <strong>ASME Section VIII, Division 1</strong> compliance.
+          This work was completed during my internship at <strong>Viram Technologies Enterprises</strong> in Pune.
+        </p>
+        <figure class="hero-media">
+          <div class="ph ph--banner" data-ph="Pressure-vessel nozzle FEA visualization (placeholder)"></div>
+          <figcaption>Stress and deformation profile of the welded nozzle assembly (placeholder).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="section" aria-labelledby="summary">
+      <div class="container">
+        <h2 id="summary">Project Summary</h2>
+        <p>
+          As part of a six-week internship at <strong>Viram Technologies Enterprises</strong>, I assisted in the 
+          simulation-driven validation of pressure-vessel components. The project aimed to ensure weld and flange
+          integrity under combined mechanical and pressure loading, meeting ASME BPVC requirements through
+          detailed finite-element analysis and CAD-validated geometry.
+        </p>
+      </div>
+    </section>
+
+    <!-- Objective & Methodology -->
+    <section class="section" aria-labelledby="method">
+      <div class="container">
+        <h2 id="method">Engineering Objective &amp; Methodology</h2>
+        <p>
+          The goal was to assess the structural safety of a stainless-steel nozzle welded to a vessel dish end,
+          subjected to a rotating agitator’s bending moment, torque, and internal pressure. The workflow involved:
+        </p>
+        <ol class="stack">
+          <li>Reconstruction of the nozzle–flange–dish geometry in CAD from fabrication drawings.</li>
+          <li>Meshing and refinement in ANSYS Workbench with tetrahedral solid elements.</li>
+          <li>Application of combined loading conditions and constraint setup to replicate real supports.</li>
+          <li>Post-processing of stress, deformation, and reaction forces to ensure equilibrium and compliance.</li>
+        </ol>
+        <figure>
+          <div class="ph ph--thumb" data-ph="CAD model of nozzle-flange (placeholder)"></div>
+          <figcaption>CAD reconstruction of the nozzle–flange assembly prior to meshing (placeholder).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Simulation Setup -->
+    <section class="section" aria-labelledby="setup">
+      <div class="container">
+        <h2 id="setup">Simulation Setup &amp; Boundary Conditions</h2>
+        <ul class="meta">
+          <li><strong>Material:</strong> Stainless Steel 316L (SA-240 / SA-312 / SA-182)</li>
+          <li><strong>Elastic Modulus:</strong> 181 GPa</li>
+          <li><strong>Poisson’s Ratio:</strong> 0.31</li>
+          <li><strong>Density:</strong> 8027 kg/m³</li>
+        </ul>
+        <p>Applied loads included:</p>
+        <ul class="stack">
+          <li>Agitator force: 4009 kgf</li>
+          <li>Torsional moment: 1043 kg·m</li>
+          <li>Internal pressure: 3.2 bar</li>
+        </ul>
+        <p>
+          Boundary conditions constrained the dish end tangentially and axially to emulate the vessel wall’s stiffness.
+          A refined mesh was generated near the weld region to capture stress gradients, while the remaining geometry 
+          used a coarser grid for efficiency.
+        </p>
+        <div class="grid">
+          <figure><div class="ph ph--thumb" data-ph="Mesh refinement (placeholder)"></div><figcaption>Refined tetrahedral mesh near the weld zone (placeholder).</figcaption></figure>
+          <figure><div class="ph ph--thumb" data-ph="Boundary conditions (placeholder)"></div><figcaption>Boundary condition and load setup (placeholder).</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="section" aria-labelledby="results">
+      <div class="container">
+        <h2 id="results">Results &amp; Validation</h2>
+        <ul class="stack">
+          <li><strong>Maximum deformation:</strong> 0.452 mm</li>
+          <li><strong>Maximum Von Mises stress:</strong> 36.1 MPa</li>
+          <li><strong>Allowable stress (ASME):</strong> 70 MPa</li>
+          <li><strong>Mesh refinement:</strong> Stress variation &lt; 1.5% upon 35% element increase</li>
+          <li><strong>Global equilibrium:</strong> Reaction forces = 39.3 kN (≈ applied load)</li>
+        </ul>
+        <p>
+          The results confirmed that all failure-prevention conditions were satisfied with a minimum safety factor above 2.9.
+          Both deformation and stress levels were significantly below ASME allowable limits. Verification through 
+          inspection data of fabricated components showed strong correlation with simulation predictions.
+        </p>
+        <figure>
+          <div class="ph ph--thumb" data-ph="Von Mises stress contour (placeholder)"></div>
+          <figcaption>Von Mises stress contour highlighting safe weld performance (placeholder).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Findings -->
+    <section class="section" aria-labelledby="findings">
+      <div class="container">
+        <h2 id="findings">Key Findings</h2>
+        <ul class="stack">
+          <li>The welded nozzle design is structurally safe under operational loads and internal pressure.</li>
+          <li>All stress limits comply with ASME Section VIII criteria.</li>
+          <li>Mesh independence and global equilibrium confirm numerical accuracy.</li>
+          <li>Simulation-based validation matched physical inspection trends, reinforcing model fidelity.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" aria-labelledby="skills">
+      <div class="container">
+        <h2 id="skills">Technical Skills Used</h2>
+        <ul class="tag-list">
+          <li>ANSYS Workbench (Static Structural)</li>
+          <li>SolidWorks / SpaceClaim CAD Modeling</li>
+          <li>Finite Element Analysis (FEA)</li>
+          <li>ASME BPVC Section VIII Design Criteria</li>
+          <li>Mesh Refinement &amp; Convergence Study</li>
+          <li>Data Correlation &amp; Verification</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Ratnam Patel.</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
