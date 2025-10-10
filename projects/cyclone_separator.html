@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CFD Analysis of Cyclone Separator Performance | Ratnam Patel</title>
+
+  <meta name="description" content="CFD study of industrial cyclone separators: hybrid meshing in ICEM, RSM turbulence modeling, and DPM particle tracking to evaluate inlet geometry, orientation, and separation efficiency." />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="CFD Analysis of Cyclone Separator Performance" />
+  <meta property="og:description" content="Hybrid meshes, Reynolds Stress Model, and Discrete Phase Model to analyze inlet effects on tangential/axial velocity fields and collection efficiency." />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a class="brand" href="../index.html">Ratnam Patel</a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+          <li>
+            <button id="theme-toggle" class="button ghost" type="button" aria-pressed="false" aria-label="Toggle dark mode">
+              <span id="theme-toggle-icon" aria-hidden="true">🌙</span>
+              <span class="sr-only">Toggle dark mode</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Title / Hero -->
+    <section class="section" aria-labelledby="title">
+      <div class="container hero">
+        <h1 id="title">CFD Analysis of Cyclone Separator Performance</h1>
+        <p class="lead">
+          Industrial cyclone CFD using hybrid meshes (hex-core, prism layers, tet connectors) with the
+          <strong>Reynolds Stress Model (RSM)</strong> for swirling turbulence and a
+          <strong>Discrete Phase Model (DPM)</strong> for particle tracking. I quantified how
+          inlet geometry and orientation affect tangential/axial velocity fields and separation efficiency.
+        </p>
+        <figure class="hero-media">
+          <div class="ph ph--banner" data-ph="Cyclone separator—swirling core & dust outlet (placeholder)"></div>
+          <figcaption>Swirling core, vortex finder, and dust outlet schematic (placeholder).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Overview & Context -->
+    <section class="section" aria-labelledby="summary">
+      <div class="container">
+        <h2 id="summary">Overview &amp; Context</h2>
+        <p>
+          Under the guidance of <strong>Dr. Ranjit S. Patil</strong> and <strong>Dr. Mahesh Dasar</strong>,
+          I evaluated cyclone separator configurations to improve dust collection efficiency and flow stability.
+          The work spans geometry creation, hybrid meshing in <em>ANSYS ICEM</em>, RSM turbulence modeling in Fluent,
+          and Lagrangian particle tracking with DPM and the Discrete Random Walk (DRW) model.
+        </p>
+        <ul class="meta">
+          <li>Focus: Inlet design &amp; orientation → velocity field &amp; efficiency</li>
+          <li>Mesh: ~0.34M–1.1M nodes (mesh-independence established)</li>
+          <li>Particles: ρ<sub>p</sub> ≈ 3320 kg·m⁻³, size sweep; efficiency = trapped / (trapped + escaped)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Geometry & Meshing -->
+    <section class="section" aria-labelledby="mesh">
+      <div class="container">
+        <h2 id="mesh">Geometry &amp; Hybrid Meshing</h2>
+        <p>
+          Baseline geometry followed the Lapple-type 2D2D proportions (cylindrical body + conical frustum).
+          I generated <strong>hex-core</strong> cells in the main volume, <strong>prismatic boundary layers</strong> along walls
+          for near-wall resolution, and <strong>tetrahedral connectors</strong> to transition between blocks.
+          Mesh quality targets: orthogonal quality &gt; 0.7 (95%+), skewness &lt; 0.5, aspect ratio &lt; 25.
+        </p>
+        <div class="grid">
+          <figure><div class="ph ph--thumb" data-ph="ICEM blocking & hex-core (placeholder)"></div><figcaption>ICEM blocking with hex-core; smooth transitions via tets (placeholder).</figcaption></figure>
+          <figure><div class="ph ph--thumb" data-ph="Prism layers at wall (placeholder)"></div><figcaption>Prismatic boundary layers for wall shear resolution (placeholder).</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modeling Approach -->
+    <section class="section" aria-labelledby="model">
+      <div class="container">
+        <h2 id="model">Modeling Approach</h2>
+        <ul class="stack">
+          <li><strong>Solver:</strong> Pressure-based steady state; coupled algorithm; Green-Gauss node-based gradients.</li>
+          <li><strong>Turbulence:</strong> <strong>RSM</strong> to capture anisotropy and streamline curvature in swirling cores.</li>
+          <li><strong>Near wall:</strong> Scalable wall functions; y<sup>+</sup> within log-law region.</li>
+          <li><strong>Particles:</strong> <strong>DPM</strong> with DRW dispersion; stochastic tracking to collection hopper/escape.</li>
+          <li><strong>Boundary conditions:</strong> Inlet velocity ≈ 20 m·s⁻¹; pressure outlet at vortex finder; gravity enabled.</li>
+        </ul>
+        <figure>
+          <div class="ph ph--thumb" data-ph="RSM & DPM setup (placeholder)"></div>
+          <figcaption>RSM turbulence and DPM particle tracking configuration (placeholder).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Studies -->
+    <section class="section" aria-labelledby="studies">
+      <div class="container">
+        <h2 id="studies">Inlet Geometry &amp; Orientation Studies</h2>
+
+        <article class="stack">
+          <h3>1) Multi-Inlet: Rectangular vs. Trapezoidal</h3>
+          <p>
+            Rectangular multi-inlets produced stronger tangential velocity across radii 20–60&nbsp;mm and
+            steeper axial-velocity gradients near the wall, leading to higher overall collection efficiency.
+            Trapezoidal inlets showed marginally better capture for sub-micron particles (≈0.3–1&nbsp;µm),
+            likely due to smoother entry and reduced re-entrainment.
+          </p>
+          <div class="grid">
+            <figure><div class="ph ph--thumb" data-ph="Tangential velocity profiles (placeholder)"></div><figcaption>Angle-averaged tangential velocity vs radius (placeholder).</figcaption></figure>
+            <figure><div class="ph ph--thumb" data-ph="Efficiency comparison (placeholder)"></div><figcaption>Separation efficiency for rectangular vs trapezoidal inlets (placeholder).</figcaption></figure>
+          </div>
+        </article>
+
+        <article class="stack">
+          <h3>2) Trapezoidal-Inlet Orientation</h3>
+          <p>
+            Four orientations (90° steps) were assessed while keeping area constant. <strong>Orientation&nbsp;1</strong> —
+            long parallel side tangential to the wall — delivered ≈20% higher tangential velocity (20–100&nbsp;mm radii),
+            higher axial core velocity, and the <strong>highest collection efficiency</strong>. Orientation&nbsp;2 exhibited
+            unsteady characteristics and was excluded from efficiency comparisons.
+          </p>
+          <figure><div class="ph ph--thumb" data-ph="Orientation schematic (placeholder)"></div><figcaption>Trapezoid orientations and resulting swirl fields (placeholder).</figcaption></figure>
+        </article>
+
+        <article class="stack">
+          <h3>3) Square-Section Cyclone (Validation)</h3>
+          <p>
+            A square-section variant was examined for manufacturability. Rectangular inlets again outperformed
+            trapezoidal/circular counterparts across sizes; the square body did not offer efficiency gains
+            relative to the cylindrical baseline but confirmed trend consistency in the velocity field.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Results & Findings -->
+    <section class="section" aria-labelledby="findings">
+      <div class="container">
+        <h2 id="findings">Key Results &amp; Findings</h2>
+        <ul class="stack">
+          <li><strong>Rectangular multi-inlets</strong> yield stronger swirl and higher overall efficiency.</li>
+          <li><strong>Trapezoidal inlets</strong> can favor sub-micron capture but underperform for larger cut sizes.</li>
+          <li><strong>Orientation matters:</strong> Orientation&nbsp;1 maximizes swirl strength and collection.</li>
+          <li><strong>RSM + DPM</strong> produced stable solutions aligned with literature trends for cyclone separation.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contributions -->
+    <section class="section" aria-labelledby="contrib">
+      <div class="container">
+        <h2 id="contrib">My Contributions</h2>
+        <ul class="stack">
+          <li>Built hybrid meshes in ICEM (hex-core, prism layers, tet transitions) and executed mesh-independence checks.</li>
+          <li>Configured RSM turbulence and DPM particle tracking with DRW dispersion; set boundary conditions and solver options.</li>
+          <li>Designed inlet geometries and orientations; generated velocity/efficiency comparisons and interpreted trade-offs.</li>
+          <li>Benchmarked outcomes against literature and identified gaps for multi-inlet orientation optimization.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" aria-labelledby="skills">
+      <div class="container">
+        <h2 id="skills">Technical Skills Used</h2>
+        <ul class="tag-list">
+          <li>ANSYS ICEM / Fluent</li>
+          <li>Hybrid Meshing (Hex-core / Prism / Tet)</li>
+          <li>Reynolds Stress Model (RSM)</li>
+          <li>Discrete Phase Model (DPM) + DRW</li>
+          <li>Mesh Independence &amp; Convergence</li>
+          <li>Post-processing &amp; Efficiency Curves</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Ratnam Patel.</p>
+    </div>
+  </footer>
+
+  <!-- Dark-mode toggle (shared) -->
+  <script>
+  (function(){
+    const STORAGE_KEY="theme",root=document.documentElement,btn=document.getElementById("theme-toggle"),ico=document.getElementById("theme-toggle-icon");
+    if(!btn||!ico)return;
+    function applyTheme(m){if(m==="dark"){root.classList.add("theme-dark");btn.setAttribute("aria-pressed","true");ico.textContent="🌞"}else{root.classList.remove("theme-dark");btn.setAttribute("aria-pressed","false");ico.textContent="🌙"}}
+    const s=localStorage.getItem(STORAGE_KEY);
+    if(s==="light"||s==="dark"){applyTheme(s)}else{const prefersDark=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;applyTheme(prefersDark?"dark":"light")}
+    btn.addEventListener("click",function(){const next=root.classList.contains("theme-dark")?"light":"dark";localStorage.setItem(STORAGE_KEY,next);applyTheme(next)});
+    if(!s&&window.matchMedia){window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",(e)=>applyTheme(e.matches?"dark":"light"))}
+  })();
+  </script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
