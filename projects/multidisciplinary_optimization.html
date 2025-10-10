@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Multidisciplinary Design Optimization | Ratnam Patel</title>
+
+  <meta name="description" content="From gradient-based constrained optimization to derivative-free search and multi-objective Pareto analysis. MATLAB implementations of SQP/ALM, Nelder–Mead with penalties, simulated annealing, weighted-sum and ε-constraint methods." />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Multidisciplinary Design Optimization" />
+  <meta property="og:description" content="Constrained optimization, stochastic methods, and multi-objective trade studies with Pareto fronts." />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a class="brand" href="../index.html">Ratnam Patel</a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Title / Hero -->
+    <section class="section" aria-labelledby="title">
+      <div class="container">
+        <h1 id="title">Multidisciplinary Design Optimization</h1>
+        <p class="lead">
+          A cohesive progression from <em>gradient-based constrained optimization</em> to
+          <em>derivative-free stochastic search</em> and <em>multi-objective Pareto analysis</em>.
+          I implemented and compared MATLAB solvers for structural and abstract design problems,
+          then built trade studies with weighted-sum and ε-constraint methods.
+        </p>
+        <figure class="hero-media">
+          <div class="ph ph--banner" data-ph="Hero: optimization methods progression (placeholder)"></div>
+          <figcaption>Progression: constrained optimization → derivative-free global search → multi-objective Pareto analysis (placeholder).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="section" aria-labelledby="summary">
+      <div class="container">
+        <h2 id="summary">Project Summary</h2>
+        <p>
+          The portfolio entry synthesizes three substantial exercises:
+          (1) a constrained beam design formulated with stress/buckling/manufacturing limits and solved via penalty and augmented Lagrangian approaches,
+          (2) derivative-free optimization using Nelder–Mead and simulated annealing with exterior penalties for constraint handling,
+          and (3) a two-objective structural trade study generating a Pareto frontier by weighted-sum and ε-constraint formulations. :contentReference[oaicite:0]{index=0} :contentReference[oaicite:1]{index=1} :contentReference[oaicite:2]{index=2} :contentReference[oaicite:3]{index=3}
+        </p>
+      </div>
+    </section>
+
+    <!-- Methods / Stack -->
+    <section class="section" aria-labelledby="stack">
+      <div class="container">
+        <h2 id="stack">Methods &amp; Stack</h2>
+        <ul class="tag-list">
+          <li>Constrained optimization (penalty, ALM, SQP/BFGS)</li>
+          <li>Nelder–Mead &amp; Simulated Annealing (exterior penalties)</li>
+          <li>Weighted-sum &amp; ε-constraint multi-objective methods</li>
+          <li>Pareto frontier construction &amp; visualization</li>
+          <li>MATLAB scripting &amp; verification</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Part A: Gradient-based constrained optimization -->
+    <section class="section" aria-labelledby="gb">
+      <div class="container">
+        <h2 id="gb">A. Gradient-Based Constrained Optimization (Structural Beam)</h2>
+        <p>
+          I formulated a cantilever-like beam design with multiple inequality constraints capturing
+          stress and lateral–torsional buckling limits, plus practical bounds for manufacturability
+          (web/flange dimensions and span). The setup was solved with exterior/interior penalties and an
+          Augmented Lagrangian Method (ALM), using quasi-Newton steps for the inner unconstrained solves. :contentReference[oaicite:4]{index=4} :contentReference[oaicite:5]{index=5} :contentReference[oaicite:6]{index=6}
+        </p>
+        <ul class="meta">
+          <li>Penalty &amp; barrier pseudo-objectives coded and iterated to feasibility. :contentReference[oaicite:7]{index=7}</li>
+          <li>ALM loop with multiplier updates and penalty growth to enforce constraints. :contentReference[oaicite:8]{index=8}</li>
+        </ul>
+        <figure>
+          <div class="ph ph--thumb" data-ph="Structural beam constraint set (placeholder)"></div>
+          <figcaption>Representative structural constraints (stress/buckling) and manufacturing limits (placeholder).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Part B: Derivative-free and stochastic methods -->
+    <section class="section" aria-labelledby="df">
+      <div class="container">
+        <h2 id="df">B. Derivative-Free &amp; Stochastic Optimization</h2>
+        <p>
+          For a nonconvex, bounded problem in four variables, I implemented a linear
+          exterior-penalty reformulation and applied Nelder–Mead (MATLAB <code>fminsearch</code>),
+          including multi-start experiments from diverse seeds. The code encapsulates the penalty-augmented
+          objective and enforces symmetric bound constraints; runs were tabulated with function counts. :contentReference[oaicite:9]{index=9} :contentReference[oaicite:10]{index=10}
+        </p>
+        <p>
+          The problem statement, bounds, and penalty function are documented alongside the stochastic setup,
+          with the composite objective ϕ(x)=f(x)+P(x) and explicit constraint scaling and multipliers. :contentReference[oaicite:11]{index=11} :contentReference[oaicite:12]{index=12}
+        </p>
+        <div class="grid">
+          <figure><div class="ph ph--thumb" data-ph="Penalty-augmented objective (placeholder)"></div><figcaption>Exterior-penalty formulation for constrained derivative-free search (placeholder).</figcaption></figure>
+          <figure><div class="ph ph--thumb" data-ph="Multi-start NM runs (placeholder)"></div><figcaption>Representative multi-start Nelder–Mead runs with function evaluations (placeholder).</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part C: Multi-objective optimization -->
+    <section class="section" aria-labelledby="mo">
+      <div class="container">
+        <h2 id="mo">C. Multi-Objective Optimization &amp; Pareto Analysis</h2>
+        <p>
+          I constructed a two-objective structural trade study and generated a Pareto frontier with
+          the weighted-sum approach, validating coverage with an ε-constraint sweep. The MATLAB loop
+          repeatedly solved constrained subproblems and aggregated non-dominated solutions, then plotted
+          the Pareto set for interpretation. :contentReference[oaicite:13]{index=13} :contentReference[oaicite:14]{index=14}
+        </p>
+        <p>
+          The objectives and constraints were defined in closed form with a clear nondimensionalization;
+          I also documented the utopia point and compared frontiers from both methods as required. :contentReference[oaicite:15]{index=15} :contentReference[oaicite:16]{index=16} :contentReference[oaicite:17]{index=17}
+        </p>
+        <div class="grid">
+          <figure><div class="ph ph--thumb" data-ph="Weighted-sum Pareto points (placeholder)"></div><figcaption>Pareto points from the weighted-sum sweep (placeholder).</figcaption></figure>
+          <figure><div class="ph ph--thumb" data-ph="ε-constraint curve (placeholder)"></div><figcaption>ε-constraint solutions overlaid to check nonconvex regions (placeholder).</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Findings -->
+    <section class="section" aria-labelledby="findings">
+      <div class="container">
+        <h2 id="findings">Key Findings</h2>
+        <ul class="stack">
+          <li><strong>Penalty/ALM</strong> reliably enforces constraints while enabling unconstrained inner solves; multiplier updates are critical for convergence. :contentReference[oaicite:18]{index=18}</li>
+          <li><strong>Nelder–Mead + penalties</strong> can reach feasible minima across multi-starts; function counts reflect sensitivity to initialization and penalty scaling. :contentReference[oaicite:19]{index=19}</li>
+          <li><strong>Weighted-sum vs ε-constraint:</strong> using both yields robust trade-space coverage; ε-constraint is preferable for nonconvex segments, and both were explicitly compared. :contentReference[oaicite:20]{index=20}</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contributions -->
+    <section class="section" aria-labelledby="contrib">
+      <div class="container">
+        <h2 id="contrib">My Contributions</h2>
+        <ul class="stack">
+          <li>Translated structural mechanics criteria into mathematical constraints and implemented them in MATLAB. :contentReference[oaicite:21]{index=21}</li>
+          <li>Implemented interior/exterior penalties, ALM, and derivative-free routines; documented convergence and feasibility checks. :contentReference[oaicite:22]{index=22} :contentReference[oaicite:23]{index=23}</li>
+          <li>Built Pareto-front generation by weighted-sum and ε-constraint with clear plotting and solution filtering. :contentReference[oaicite:24]{index=24}</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" aria-labelledby="skills">
+      <div class="container">
+        <h2 id="skills">Technical Skills Used</h2>
+        <ul class="tag-list">
+          <li>MATLAB (fmincon, fminunc, fminsearch)</li>
+          <li>Constrained optimization (penalties, ALM, SQP/BFGS)</li>
+          <li>Derivative-free &amp; stochastic methods (Nelder–Mead, SA)</li>
+          <li>Multi-objective (weighted-sum, ε-constraint)</li>
+          <li>Pareto analysis &amp; visualization</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Ratnam Patel.</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
