@@ -40,8 +40,13 @@
         </p>
 
         <figure class="hero-media">
-          <div class="ph ph--banner" data-ph="Hero: lubrication modeling progression (placeholder)"></div>
-          <figcaption>Concept: progression from flat film → step bearing → pivoted pad → journal bearing (placeholder).</figcaption>
+          <img
+            src="../assets/images/me_556_pressure.jpg"
+            alt="3D surface of nondimensional pressure over the bearing plate for H0=0.5 and n_s=0.5"
+            width="1200" height="900" loading="lazy" decoding="async" />
+          <figcaption>
+            Representative pressure field from the 2-D Reynolds solver (step bearing case shown).
+          </figcaption>
         </figure>
       </div>
     </section>
@@ -77,10 +82,7 @@
             Used this stage to verify boundary conditions, grid convergence, and integration routines
             for load and flow before adding geometric features.
           </p>
-          <figure>
-            <div class="ph ph--thumb" data-ph="Pressure vs. x for flat film (placeholder)"></div>
-            <figcaption>Pressure distribution in a planar film (placeholder).</figcaption>
-          </figure>
+          <!-- (No image supplied for this stage) -->
         </article>
 
         <article class="stack">
@@ -95,9 +97,27 @@
             <li>Interface upwinding at the step</li>
             <li>Load &amp; flow comparisons</li>
           </ul>
+
           <div class="grid">
-            <figure><div class="ph ph--thumb" data-ph="Pressure surface over X–Y (placeholder)"></div><figcaption>Pressure distribution over the plate (placeholder).</figcaption></figure>
-            <figure><div class="ph ph--thumb" data-ph="Load vs H0 (placeholder)"></div><figcaption>Load-carrying trend vs. outlet film ratio (placeholder).</figcaption></figure>
+            <figure>
+              <img
+                src="../assets/images/me_556_film_thickness.jpg"
+                alt="Curves of dimensionless load capacity versus film thickness H0 for multiple n_s values"
+                width="1200" height="900" loading="lazy" decoding="async" />
+              <figcaption>
+                Effect of outlet film ratio \(H_0\) on nondimensional load capacity for several \(n_s\) values.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="../assets/images/me_556_load.jpg"
+                alt="Variation of resultant hydrodynamic load and force components with H0"
+                width="1200" height="900" loading="lazy" decoding="async" />
+              <figcaption>
+                Variation of resultant load and force components versus \(H_0\); thinner films yield higher peak load.
+              </figcaption>
+            </figure>
           </div>
         </article>
 
@@ -114,14 +134,11 @@
             <li>Load-pivot search</li>
             <li>Friction &amp; temperature-rise indicators</li>
           </ul>
-          <div class="grid">
-            <figure><div class="ph ph--thumb" data-ph="Pad pressure field (placeholder)"></div><figcaption>Pressure field across the pivoted pad (placeholder).</figcaption></figure>
-            <figure><div class="ph ph--thumb" data-ph="Pivot location vs metrics (placeholder)"></div><figcaption>Trends of load, friction, and flow vs. pivot location (placeholder).</figcaption></figure>
-          </div>
+          <!-- (No specific images provided for this pad stage; text retained) -->
         </article>
 
         <article class="stack">
-          <h3>4) Journal Bearing (Circumferential Pressure & Cavitation Handling)</h3>
+          <h3>4) Journal Bearing (Circumferential Pressure &amp; Cavitation Handling)</h3>
           <p>
             Modeled circumferential pressure build-up in a journal bearing and examined side-leakage
             and cavitation boundary handling. This stage tested solver robustness on curved domains
@@ -133,10 +150,6 @@
             <li>Side-leakage evaluation</li>
             <li>Cavitation boundary handling</li>
           </ul>
-          <figure>
-            <div class="ph ph--thumb" data-ph="Journal bearing pressure wrap (placeholder)"></div>
-            <figcaption>Representative circumferential pressure variation (placeholder).</figcaption>
-          </figure>
         </article>
       </div>
     </section>
@@ -188,6 +201,6 @@
     </div>
   </footer>
 
-  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

@@ -72,7 +72,7 @@
       </div>
     </section>
 
-    <!-- Part A: Gradient-based constrained optimization -->
+    <!-- Part A -->
     <section class="section" aria-labelledby="gb">
       <div class="container">
         <h2 id="gb">A. Gradient-Based Constrained Optimization (Structural Beam)</h2>
@@ -93,7 +93,7 @@
       </div>
     </section>
 
-    <!-- Part B: Derivative-free and stochastic methods -->
+    <!-- Part B -->
     <section class="section" aria-labelledby="df">
       <div class="container">
         <h2 id="df">B. Derivative-Free &amp; Stochastic Optimization</h2>
@@ -114,7 +114,7 @@
       </div>
     </section>
 
-    <!-- Part C: Multi-objective optimization -->
+    <!-- Part C: Multi-objective -->
     <section class="section" aria-labelledby="mo">
       <div class="container">
         <h2 id="mo">C. Multi-Objective Optimization &amp; Pareto Analysis</h2>
@@ -128,9 +128,29 @@
           The objectives and constraints were defined in closed form with a clear nondimensionalization;
           I also documented the utopia point and compared frontiers from both methods as required. :contentReference[oaicite:15]{index=15} :contentReference[oaicite:16]{index=16} :contentReference[oaicite:17]{index=17}
         </p>
+
         <div class="grid">
-          <figure><div class="ph ph--thumb" data-ph="Weighted-sum Pareto points (placeholder)"></div><figcaption>Pareto points from the weighted-sum sweep (placeholder).</figcaption></figure>
-          <figure><div class="ph ph--thumb" data-ph="ε-constraint curve (placeholder)"></div><figcaption>ε-constraint solutions overlaid to check nonconvex regions (placeholder).</figcaption></figure>
+          <figure>
+            <img
+              src="../assets/images/aae_550_1.jpg"
+              alt="Pareto frontier generated via ε-constraint method showing f2 versus f1 with primary points and smoothed curve"
+              width="1200" height="900" loading="lazy" decoding="async" />
+            <figcaption>
+              ε-constraint frontier: primary solutions and a smooth fit; captures the trade between
+              \(f_1(x)\) and \(f_2(x)\) including steep and gently sloped segments.
+            </figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="../assets/images/aae_550_2.jpg"
+              alt="Comparison of Pareto frontiers: weighted-sum vs ε-constraint, showing strong agreement across the trade space"
+              width="1200" height="900" loading="lazy" decoding="async" />
+            <figcaption>
+              Method comparison: weighted-sum vs ε-constraint. The close agreement confirms broad
+              coverage; ε-constraint remains reliable in potentially nonconvex regions.
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>

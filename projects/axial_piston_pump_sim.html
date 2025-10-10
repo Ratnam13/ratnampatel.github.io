@@ -12,84 +12,189 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
-  <header class="site-header"><div class="container">
-    <a class="brand" href="../index.html">Ratnam Patel</a>
-    <nav class="site-nav" aria-label="Primary">
-      <ul><li><a href="../index.html#projects">Projects</a></li><li><a href="../index.html#about">About</a></li><li><a href="../index.html#contact">Contact</a></li></ul>
-    </nav></div>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../index.html">Ratnam Patel</a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <main id="main">
-    <section class="section"><div class="container">
-      <h1>Axial Piston Pump — Kinematic &amp; Fluid-Dynamic Model (MATLAB/Simulink)</h1>
-      <p class="lead">Modular lumped-parameter model of a swash-plate pump: valve-plate overlap areas, chamber pressure build-up, and piston–cylinder leakage, assembled into an 11-piston machine and assessed for volumetric efficiency.</p>
-      <figure class="hero-media">
-        <div class="ph ph--banner" data-ph="Hero: pump model workflow (placeholder)"></div>
-        <figcaption>High-level modeling workflow used in the study (placeholder).</figcaption>
-      </figure>
-    </div></section>
-
-    <section class="section"><div class="container">
-      <h2>Context & Objectives</h2>
-      <ul class="tag-list">
-        <li>Model valve-plate port timing from geometry</li>
-        <li>Capture chamber dynamics &amp; leakage mechanisms</li>
-        <li>Predict volumetric efficiency vs. speed/pressure</li>
-      </ul>
-      <p>Assumptions and data: ISO VG-46 fluid, 40 cc/rev, 11 pistons, swash ≈19°, dead volume in chambers; image-based overlap areas for valve-plate; sinusoidal chamber volume curve.</p>
-    </div></section>
-
-    <section class="section"><div class="container">
-      <h2>Method</h2>
-      <ol class="stack">
-        <li><strong>Valve-plate area curves:</strong> Port overlap vs. piston angle computed from a CAD-style mask/intersection approach.</li>
-        <li><strong>Kinematics:</strong> Chamber volume curve with dead volume; piston stroke from geometry.</li>
-        <li><strong>Fluid blocks:</strong> Orifice flow; chamber pressure build-up using bulk modulus; leakage split into <em>Poiseuille</em> (Δp-driven) and <em>Couette</em> (piston velocity), with a fixed drain line reference.</li>
-        <li><strong>Assembly:</strong> 11 pistons with phase offsets; inlet/outlet port chambers; total flow &amp; efficiency metrics.</li>
-      </ol>
-
-      <div class="grid">
-        <figure><div class="ph ph--thumb" data-ph="Valve-plate overlap curve (placeholder)"></div><figcaption>Illustrative port overlap vs. angle (placeholder).</figcaption></figure>
-        <figure><div class="ph ph--thumb" data-ph="Leakage model (placeholder)"></div><figcaption>Leakage submodel: Poiseuille + Couette (placeholder).</figcaption></figure>
+    <!-- HERO -->
+    <section class="section">
+      <div class="container">
+        <h1>Axial Piston Pump — Kinematic &amp; Fluid-Dynamic Model (MATLAB/Simulink)</h1>
+        <p class="lead">
+          Modular lumped-parameter model of a swash-plate pump: valve-plate overlap areas, chamber pressure build-up,
+          and piston–cylinder leakage. Assembled into an 11-piston machine and assessed for volumetric efficiency.
+        </p>
+        <figure class="hero-media">
+          <img
+            src="../assets/images/me_535_project_1_pump.jpg"
+            alt="Sectional CAD of an axial piston pump with swash-plate and multiple pistons"
+            width="1200" height="900" loading="lazy" decoding="async" />
+          <figcaption>Hardware being modeled: fixed-displacement swash-plate axial piston pump.</figcaption>
+        </figure>
       </div>
-    </div></section>
+    </section>
 
-    <section class="section"><div class="container">
-      <h2>Results (Representative)</h2>
-      <p>Mean volumetric efficiency (η<sub>v</sub>) across four operating points shows expected trends—lower at high outlet pressure; less deterioration at higher rpm due to shorter back-flow window.</p>
-      <ul class="meta">
-        <li>1000 rpm, 50 bar → ~98.9%</li>
-        <li>1000 rpm, 400 bar → ~95.5%</li>
-        <li>3000 rpm, 50 bar → ~99.3%</li>
-        <li>3000 rpm, 400 bar → ~96.2%</li>
-      </ul>
-      <div class="grid">
-        <figure><div class="ph ph--thumb" data-ph="Flow/pressure spikes (placeholder)"></div><figcaption>Back-flow spikes when suction and delivery briefly overlap (placeholder).</figcaption></figure>
-        <figure><div class="ph ph--thumb" data-ph="η_v vs operating point (placeholder)"></div><figcaption>Volumetric efficiency trends vs speed/pressure (placeholder).</figcaption></figure>
+    <!-- CONTEXT -->
+    <section class="section">
+      <div class="container">
+        <h2>Context &amp; Objectives</h2>
+        <ul class="tag-list">
+          <li>Model valve-plate port timing from geometry</li>
+          <li>Capture chamber dynamics &amp; leakage mechanisms</li>
+          <li>Predict volumetric efficiency vs speed/pressure</li>
+        </ul>
+        <p>
+          Assumptions/data: ISO VG-46 fluid, 40&nbsp;cc/rev, 11 pistons, swash ≈19°, dead volume in chambers.
+          Valve-plate overlap areas derived from geometry; sinusoidal chamber volume curve with dead volume.
+        </p>
+
+        <div class="grid">
+          <figure>
+            <img
+              src="../assets/images/me_535_project_1_flowchart.jpg"
+              alt="Block flowchart connecting inlet/outlet tanks, orifices, chamber pressure, leakage and flows"
+              width="1200" height="900" loading="lazy" decoding="async" />
+            <figcaption>High-level flowchart of the modeling workflow and information exchange.</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="../assets/images/me_535_project_1_connections.jpg"
+              alt="I/O diagram listing model inputs and outputs including chamber pressures and flows"
+              width="1200" height="900" loading="lazy" decoding="async" />
+            <figcaption>Model inputs/outputs used for sweeps and post-processing.</figcaption>
+          </figure>
+        </div>
       </div>
-    </div></section>
+    </section>
 
-    <section class="section"><div class="container">
-      <h2>My Contributions</h2>
-      <ul class="stack">
-        <li>Built valve-plate overlap and chamber kinematics models; implemented leakage mechanics.</li>
-        <li>Integrated orifice/chamber/leakage blocks for single-piston and full machine assemblies.</li>
-        <li>Post-processed efficiency metrics and diagnosed back-flow events.</li>
-      </ul>
-    </div></section>
+    <!-- METHOD -->
+    <section class="section">
+      <div class="container">
+        <h2>Method</h2>
+        <ol class="stack">
+          <li><strong>Valve-plate area curves:</strong> Port overlap vs piston angle from a mask/intersection approach.</li>
+          <li><strong>Kinematics:</strong> Chamber volume curve with dead volume; piston stroke from geometry.</li>
+          <li><strong>Fluid blocks:</strong> Orifice flow; chamber pressure build-up using bulk modulus;
+              leakage split into <em>Poiseuille</em> (Δp-driven) and <em>Couette</em> (piston velocity), with a drain reference.</li>
+          <li><strong>Assembly:</strong> 11 pistons with phase offsets; inlet/outlet port chambers; total flow &amp; η<sub>v</sub>.</li>
+        </ol>
 
-    <section class="section"><div class="container">
-      <h2>Technical Skills Used</h2>
-      <ul class="tag-list">
-        <li>MATLAB / Simulink</li>
-        <li>Hydraulic LP modeling</li>
-        <li>Data analysis &amp; visualization</li>
-        <li>Mechanism kinematics</li>
-      </ul>
-    </div></section>
+        <figure>
+          <img
+            src="../assets/images/me_535_project_1_model_top_level.jpg"
+            alt="Top-level Simulink diagram showing the entire pump assembly with inlet/outlet blocks"
+            width="1200" height="900" loading="lazy" decoding="async" />
+          <figcaption>Top-level Simulink assembly for the full 11-piston machine.</figcaption>
+        </figure>
+
+        <div class="grid">
+          <figure>
+            <img
+              src="../assets/images/me_535_project_1_model_mid_level.jpg"
+              alt="Mid-level Simulink module showing interface I/O for a single piston chamber"
+              width="1200" height="900" loading="lazy" decoding="async" />
+            <figcaption>Mid-level module: single-chamber interface (pressures, flows, speed, piston number).</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="../assets/images/me_535_project_1_model_bot_level.jpg"
+              alt="Bottom-level Simulink model for a piston chamber: stroke, chamber, orifices, leakage"
+              width="1200" height="900" loading="lazy" decoding="async" />
+            <figcaption>Bottom-level chamber model: stroke &rarr; chamber &rarr; orifices; leakage path included.</figcaption>
+          </figure>
+        </div>
+
+        <figure>
+          <img
+            src="../assets/images/me_535_project_1_model_leakage_module.jpg"
+            alt="Detailed Simulink leakage submodel implementing Poiseuille and Couette components with drain"
+            width="1200" height="900" loading="lazy" decoding="async" />
+          <figcaption>Leakage submodel: Poiseuille (Δp) + Couette (piston velocity) components.</figcaption>
+        </figure>
+
+        <!-- Optional extra you provided; include if you want the deep dive -->
+        <figure>
+          <img
+            src="../assets/images/me_535_project_1_model_low_level.jpg"
+            alt="Expanded low-level Simulink arrangement showing detailed parameter wiring across multiple pistons"
+            width="1200" height="900" loading="lazy" decoding="async" />
+          <figcaption>Expanded view used during verification and parameterization across pistons.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section class="section">
+      <div class="container">
+        <h2>Results (Representative)</h2>
+        <p>
+          Mean volumetric efficiency (η<sub>v</sub>) across four operating points shows expected trends—lower at high outlet pressure;
+          less deterioration at higher rpm due to shorter back-flow windows.
+        </p>
+        <ul class="meta">
+          <li>1000 rpm, 50 bar → ~98.9%</li>
+          <li>1000 rpm, 400 bar → ~95.5%</li>
+          <li>3000 rpm, 50 bar → ~99.3%</li>
+          <li>3000 rpm, 400 bar → ~96.2%</li>
+        </ul>
+
+        <figure>
+          <img
+            src="../assets/images/me_535_project_1_results.jpg"
+            alt="Four diagnostic plots: outlet pressure, outlet flow, single-piston leakage, and total leakage vs time"
+            width="1200" height="900" loading="lazy" decoding="async" />
+          <figcaption>
+            Representative diagnostics: outlet pressure and flow ripple; single-piston leakage over a stroke; total leakage trend.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- CONTRIBUTIONS -->
+    <section class="section">
+      <div class="container">
+        <h2>My Contributions</h2>
+        <ul class="stack">
+          <li>Built valve-plate overlap and chamber kinematics models; implemented leakage mechanics.</li>
+          <li>Integrated orifice/chamber/leakage blocks for single-piston and full machine assemblies.</li>
+          <li>Post-processed efficiency metrics and diagnosed back-flow events.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section">
+      <div class="container">
+        <h2>Technical Skills Used</h2>
+        <ul class="tag-list">
+          <li>MATLAB / Simulink</li>
+          <li>Hydraulic lumped-parameter modeling</li>
+          <li>Data analysis &amp; visualization</li>
+          <li>Mechanism kinematics</li>
+        </ul>
+      </div>
+    </section>
   </main>
 
-  <footer class="site-footer"><div class="container"><p>&copy; <span id="year"></span> Ratnam Patel.</p></div></footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Ratnam Patel.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
