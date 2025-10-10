@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Axial Piston Pump — Kinematic & Fluid-Dynamic Model | Ratnam Patel</title>
+  <meta name="description" content="Modular lumped-parameter model of a fixed-displacement axial piston pump in MATLAB/Simulink: valve-plate areas, chamber pressure build-up, and leakage (Poiseuille + Couette), with efficiency trends across operating points." />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Axial Piston Pump — Kinematic & Fluid-Dynamic Model" />
+  <meta property="og:description" content="MATLAB/Simulink model with valve-plate overlap, chamber dynamics, and leakage; evaluates volumetric efficiency vs speed/pressure." />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header"><div class="container">
+    <a class="brand" href="../index.html">Ratnam Patel</a>
+    <nav class="site-nav" aria-label="Primary">
+      <ul><li><a href="../index.html#projects">Projects</a></li><li><a href="../index.html#about">About</a></li><li><a href="../index.html#contact">Contact</a></li></ul>
+    </nav></div>
+  </header>
+
+  <main id="main">
+    <section class="section"><div class="container">
+      <h1>Axial Piston Pump — Kinematic &amp; Fluid-Dynamic Model (MATLAB/Simulink)</h1>
+      <p class="lead">Modular lumped-parameter model of a swash-plate pump: valve-plate overlap areas, chamber pressure build-up, and piston–cylinder leakage, assembled into an 11-piston machine and assessed for volumetric efficiency.</p>
+      <figure class="hero-media">
+        <div class="ph ph--banner" data-ph="Hero: pump model workflow (placeholder)"></div>
+        <figcaption>High-level modeling workflow used in the study (placeholder).</figcaption>
+      </figure>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2>Context & Objectives</h2>
+      <ul class="tag-list">
+        <li>Model valve-plate port timing from geometry</li>
+        <li>Capture chamber dynamics &amp; leakage mechanisms</li>
+        <li>Predict volumetric efficiency vs. speed/pressure</li>
+      </ul>
+      <p>Assumptions and data: ISO VG-46 fluid, 40 cc/rev, 11 pistons, swash ≈19°, dead volume in chambers; image-based overlap areas for valve-plate; sinusoidal chamber volume curve.</p>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2>Method</h2>
+      <ol class="stack">
+        <li><strong>Valve-plate area curves:</strong> Port overlap vs. piston angle computed from a CAD-style mask/intersection approach.</li>
+        <li><strong>Kinematics:</strong> Chamber volume curve with dead volume; piston stroke from geometry.</li>
+        <li><strong>Fluid blocks:</strong> Orifice flow; chamber pressure build-up using bulk modulus; leakage split into <em>Poiseuille</em> (Δp-driven) and <em>Couette</em> (piston velocity), with a fixed drain line reference.</li>
+        <li><strong>Assembly:</strong> 11 pistons with phase offsets; inlet/outlet port chambers; total flow &amp; efficiency metrics.</li>
+      </ol>
+
+      <div class="grid">
+        <figure><div class="ph ph--thumb" data-ph="Valve-plate overlap curve (placeholder)"></div><figcaption>Illustrative port overlap vs. angle (placeholder).</figcaption></figure>
+        <figure><div class="ph ph--thumb" data-ph="Leakage model (placeholder)"></div><figcaption>Leakage submodel: Poiseuille + Couette (placeholder).</figcaption></figure>
+      </div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2>Results (Representative)</h2>
+      <p>Mean volumetric efficiency (η<sub>v</sub>) across four operating points shows expected trends—lower at high outlet pressure; less deterioration at higher rpm due to shorter back-flow window.</p>
+      <ul class="meta">
+        <li>1000 rpm, 50 bar → ~98.9%</li>
+        <li>1000 rpm, 400 bar → ~95.5%</li>
+        <li>3000 rpm, 50 bar → ~99.3%</li>
+        <li>3000 rpm, 400 bar → ~96.2%</li>
+      </ul>
+      <div class="grid">
+        <figure><div class="ph ph--thumb" data-ph="Flow/pressure spikes (placeholder)"></div><figcaption>Back-flow spikes when suction and delivery briefly overlap (placeholder).</figcaption></figure>
+        <figure><div class="ph ph--thumb" data-ph="η_v vs operating point (placeholder)"></div><figcaption>Volumetric efficiency trends vs speed/pressure (placeholder).</figcaption></figure>
+      </div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2>My Contributions</h2>
+      <ul class="stack">
+        <li>Built valve-plate overlap and chamber kinematics models; implemented leakage mechanics.</li>
+        <li>Integrated orifice/chamber/leakage blocks for single-piston and full machine assemblies.</li>
+        <li>Post-processed efficiency metrics and diagnosed back-flow events.</li>
+      </ul>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2>Technical Skills Used</h2>
+      <ul class="tag-list">
+        <li>MATLAB / Simulink</li>
+        <li>Hydraulic LP modeling</li>
+        <li>Data analysis &amp; visualization</li>
+        <li>Mechanism kinematics</li>
+      </ul>
+    </div></section>
+  </main>
+
+  <footer class="site-footer"><div class="container"><p>&copy; <span id="year"></span> Ratnam Patel.</p></div></footer>
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+</body>
+</html>
