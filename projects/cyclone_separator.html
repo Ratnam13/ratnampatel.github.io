@@ -44,9 +44,15 @@
           <strong>Discrete Phase Model (DPM)</strong> for particle tracking. I quantified how
           inlet geometry and orientation affect tangential/axial velocity fields and separation efficiency.
         </p>
+
+        <!-- HERO IMAGE: CAD model overview -->
         <figure class="hero-media">
-          <div class="ph ph--banner" data-ph="Cyclone separator—swirling core & dust outlet (placeholder)"></div>
-          <figcaption>Swirling core, vortex finder, and dust outlet schematic (placeholder).</figcaption>
+          <img
+            class="project-hero-img"
+            src="../assets/images/cyclone_separator_dop.jpg"
+            alt="CAD model of the cyclone separator with multi-inlet plenum and vortex finder"
+            loading="lazy" decoding="async" width="1200" height="900" />
+          <figcaption>Geometry used for CFD: cylindrical body, conical dust hopper, and multi-inlet plenum.</figcaption>
         </figure>
       </div>
     </section>
@@ -79,9 +85,27 @@
           for near-wall resolution, and <strong>tetrahedral connectors</strong> to transition between blocks.
           Mesh quality targets: orthogonal quality &gt; 0.7 (95%+), skewness &lt; 0.5, aspect ratio &lt; 25.
         </p>
+
         <div class="grid">
-          <figure><div class="ph ph--thumb" data-ph="ICEM blocking & hex-core (placeholder)"></div><figcaption>ICEM blocking with hex-core; smooth transitions via tets (placeholder).</figcaption></figure>
-          <figure><div class="ph ph--thumb" data-ph="Prism layers at wall (placeholder)"></div><figcaption>Prismatic boundary layers for wall shear resolution (placeholder).</figcaption></figure>
+          <!-- MESH CLOSE-UP -->
+          <figure>
+            <img
+              class="project-thumb"
+              src="../assets/images/cyclone_separator_dop_2.jpg"
+              alt="Boundary-layer prism stacks transitioning to hex-core interior in the cyclone"
+              loading="lazy" decoding="async" width="1200" height="900" />
+            <figcaption>Boundary-layer prisms and smooth transition to the hex-core interior (ICEM).</figcaption>
+          </figure>
+
+          <!-- PRESSURE CONTOURS -->
+          <figure>
+            <img
+              class="project-thumb"
+              src="../assets/images/cyclone_separator_dop_1.jpg"
+              alt="Total pressure contours along the cyclone height showing core and wall losses"
+              loading="lazy" decoding="async" width="1200" height="900" />
+            <figcaption>Total pressure field for one operating point—core depression and wall losses visible.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -97,10 +121,6 @@
           <li><strong>Particles:</strong> <strong>DPM</strong> with DRW dispersion; stochastic tracking to collection hopper/escape.</li>
           <li><strong>Boundary conditions:</strong> Inlet velocity ≈ 20 m·s⁻¹; pressure outlet at vortex finder; gravity enabled.</li>
         </ul>
-        <figure>
-          <div class="ph ph--thumb" data-ph="RSM & DPM setup (placeholder)"></div>
-          <figcaption>RSM turbulence and DPM particle tracking configuration (placeholder).</figcaption>
-        </figure>
       </div>
     </section>
 
@@ -117,29 +137,34 @@
             Trapezoidal inlets showed marginally better capture for sub-micron particles (≈0.3–1&nbsp;µm),
             likely due to smoother entry and reduced re-entrainment.
           </p>
-          <div class="grid">
-            <figure><div class="ph ph--thumb" data-ph="Tangential velocity profiles (placeholder)"></div><figcaption>Angle-averaged tangential velocity vs radius (placeholder).</figcaption></figure>
-            <figure><div class="ph ph--thumb" data-ph="Efficiency comparison (placeholder)"></div><figcaption>Separation efficiency for rectangular vs trapezoidal inlets (placeholder).</figcaption></figure>
-          </div>
+
+          <!-- EFFICIENCY CURVE -->
+          <figure>
+            <img
+              class="project-thumb"
+              src="../assets/images/cyclone_separator_dop_3.jpg"
+              alt="Collection efficiency vs particle diameter: rectangular inlets outperform trapezoidal over most sizes"
+              loading="lazy" decoding="async" width="1200" height="900" />
+            <figcaption>Separation efficiency comparison—rectangular vs trapezoidal multi-inlets.</figcaption>
+          </figure>
         </article>
 
         <article class="stack">
           <h3>2) Trapezoidal-Inlet Orientation</h3>
           <p>
-            Four orientations (90° steps) were assessed while keeping area constant. <strong>Orientation&nbsp;1</strong> —
-            long parallel side tangential to the wall — delivered ≈20% higher tangential velocity (20–100&nbsp;mm radii),
-            higher axial core velocity, and the <strong>highest collection efficiency</strong>. Orientation&nbsp;2 exhibited
-            unsteady characteristics and was excluded from efficiency comparisons.
+            Four orientations (90° steps) were assessed while keeping area constant. <strong>Orientation&nbsp;1</strong>
+            (long parallel side tangential to the wall) delivered ≈20% higher tangential velocity (20–100&nbsp;mm radii),
+            higher axial core velocity, and the best collection efficiency. Orientation&nbsp;2 showed unsteady characteristics
+            and was excluded from efficiency comparisons.
           </p>
-          <figure><div class="ph ph--thumb" data-ph="Orientation schematic (placeholder)"></div><figcaption>Trapezoid orientations and resulting swirl fields (placeholder).</figcaption></figure>
         </article>
 
         <article class="stack">
           <h3>3) Square-Section Cyclone (Validation)</h3>
           <p>
             A square-section variant was examined for manufacturability. Rectangular inlets again outperformed
-            trapezoidal/circular counterparts across sizes; the square body did not offer efficiency gains
-            relative to the cylindrical baseline but confirmed trend consistency in the velocity field.
+            trapezoidal/circular counterparts; the square body did not offer efficiency gains vs the cylindrical baseline
+            but confirmed trend consistency in the velocity field.
           </p>
         </article>
       </div>
@@ -154,19 +179,6 @@
           <li><strong>Trapezoidal inlets</strong> can favor sub-micron capture but underperform for larger cut sizes.</li>
           <li><strong>Orientation matters:</strong> Orientation&nbsp;1 maximizes swirl strength and collection.</li>
           <li><strong>RSM + DPM</strong> produced stable solutions aligned with literature trends for cyclone separation.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Contributions -->
-    <section class="section" aria-labelledby="contrib">
-      <div class="container">
-        <h2 id="contrib">My Contributions</h2>
-        <ul class="stack">
-          <li>Built hybrid meshes in ICEM (hex-core, prism layers, tet transitions) and executed mesh-independence checks.</li>
-          <li>Configured RSM turbulence and DPM particle tracking with DRW dispersion; set boundary conditions and solver options.</li>
-          <li>Designed inlet geometries and orientations; generated velocity/efficiency comparisons and interpreted trade-offs.</li>
-          <li>Benchmarked outcomes against literature and identified gaps for multi-inlet orientation optimization.</li>
         </ul>
       </div>
     </section>
