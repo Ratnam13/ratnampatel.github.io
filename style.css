@@ -74,6 +74,21 @@ a:hover{color:var(--brand-hover)}
   padding:var(--s-2) var(--s-4);border-radius:8px;z-index:1000
 }
 
+/* Make all cards equal-height and push tags to the bottom */
+.project-grid { align-items: stretch; }           /* ensure stretching */
+.project-card { display: flex; flex-direction: column; }
+.project-body { display: flex; flex-direction: column; gap: var(--s-3); height: 100%; }
+.project-body p{
+  /* 3-line clamp so summaries don't make some cards taller */
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;
+  overflow: hidden; min-height: calc(3 * 1em * var(--lh));
+}
+.project-card .meta { margin-top: auto; }         /* sits at the bottom */
+
+/* Standardize card media */
+.project-card > .ph { aspect-ratio: 4 / 3; height: auto; } /* force thumb ratio */
+
+
 /* ===== Header & Nav (unified across pages) ===== */
 .site-header{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:50}
 .site-header .container{
