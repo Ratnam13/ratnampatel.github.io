@@ -12,79 +12,165 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
-  <header class="site-header"><div class="container">
-    <a class="brand" href="../index.html">Ratnam Patel</a>
-    <nav class="site-nav" aria-label="Primary">
-      <ul><li><a href="../index.html#projects">Projects</a></li><li><a href="../index.html#about">About</a></li><li><a href="../index.html#contact">Contact</a></li></ul>
-    </nav></div>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../index.html">Ratnam Patel</a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <main id="main">
-    <section class="section"><div class="container">
-      <h1>Mini Excavator — Pre-Compensated, Load-Sensing Hydraulics</h1>
-      <p class="lead">System-level design and Simulink modeling of a pre-compensated circuit driven by a variable-displacement pump, supplying a boom cylinder and swing motor with load-sensing feedback to maintain a target Δp across the DCV.</p>
-      <figure class="hero-media">
-        <div class="ph ph--banner" data-ph="Hero: system schematic (placeholder)"></div>
-        <figcaption>High-level system schematic (placeholder).</figcaption>
-      </figure>
-    </div></section>
+    <!-- Hero -->
+    <section class="section">
+      <div class="container">
+        <h1>Mini Excavator — Pre-Compensated, Load-Sensing Hydraulics</h1>
+        <p class="lead">
+          System-level design and Simulink modeling of a pre-compensated circuit driven by a variable-displacement pump,
+          supplying a boom cylinder and swing motor with load-sensing feedback to maintain a target Δp across the DCV.
+        </p>
 
-    <section class="section"><div class="container">
-      <h2>Goal & Scope</h2>
-      <p>Design a practical excavator circuit, size key components (cylinder/motor/pump), and implement a pre-compensated, load-sensing control in Simulink to examine flows, pressures, and power under representative tasks.</p>
-      <ul class="meta">
-        <li>Architecture: Variable-displacement pump + compensator + DCV + actuators</li>
-        <li>Loads: Boom cylinder (sized from force/pressure), swing motor (gear-reduced)</li>
-      </ul>
-    </div></section>
-
-    <section class="section"><div class="container">
-      <h2>Method</h2>
-      <ol class="stack">
-        <li><strong>Component sizing:</strong> Boom cylinder selected (e.g., ≈4″ bore, 2.25″ rod, ≈27.4″ stroke) to meet force targets at ≤250 bar; swing motor sized from torque & gear ratio; pump displacement from combined peak flows.</li>
-        <li><strong>Modeling approach:</strong> Chambers via pressure build-up; DCV and compensator as variable orifices; compensator regulates Δp across DCV using proportional control for stability.</li>
-        <li><strong>Integration:</strong> Pump pressure computed from cumulative flows; separate subsystems for boom and swing; monitored flows/pressures and computed power/efficiency targets.</li>
-      </ol>
-
-      <div class="grid">
-        <figure><div class="ph ph--thumb" data-ph="Compensator control block (placeholder)"></div><figcaption>Compensator: maintains Δp across DCV (placeholder).</figcaption></figure>
-        <figure><div class="ph ph--thumb" data-ph="DCV logic (placeholder)"></div><figcaption>DCV logic routing pump/tank to ports by spool command (placeholder).</figcaption></figure>
+        <figure class="hero-media">
+          <picture>
+            <img
+              src="../assets/images/me_535_project_2_main.jpg"
+              alt="Mini excavator (boom and swing axes indicated) used as the reference machine for the hydraulic model"
+              loading="lazy" decoding="async" width="1200" height="780" />
+          </picture>
+          <figcaption>Reference machine and task axes (boom, swing) used for sizing and control targets.</figcaption>
+        </figure>
       </div>
-    </div></section>
+    </section>
 
-    <section class="section"><div class="container">
-      <h2>Outcome & Learning</h2>
-      <ul class="stack">
-        <li>All **subsystems** (orifice, chamber, DCV, compensator) behaved as expected in isolation.</li>
-        <li>The **full integrated** simulation exhibited stiffness (∆t≈1e-11 s) and memory pressure; moving from mixed MATLAB Function blocks to Simulink primitives improved robustness; proportional control chosen for performance.</li>
-        <li>Next steps: refine initial states, solver selection/tolerances, and block optimization for tractable whole-system runs.</li>
-      </ul>
-      <div class="grid">
-        <figure><div class="ph ph--thumb" data-ph="Subsystem validation plots (placeholder)"></div><figcaption>Representative subsystem validation (placeholder).</figcaption></figure>
+    <!-- Goal & Scope -->
+    <section class="section">
+      <div class="container">
+        <h2>Goal &amp; Scope</h2>
+        <p>
+          Design a practical excavator circuit, size key components (cylinder/motor/pump), and implement a
+          pre-compensated, load-sensing control in Simulink to examine flows, pressures, and power under representative tasks.
+        </p>
+        <ul class="meta">
+          <li>Architecture: Variable-displacement pump + compensator + DCV + actuators</li>
+          <li>Loads: Boom cylinder (sized from force/pressure), swing motor (gear-reduced)</li>
+        </ul>
       </div>
-    </div></section>
+    </section>
 
-    <section class="section"><div class="container">
-      <h2>My Contributions</h2>
-      <ul class="stack">
-        <li>End-to-end system architecture and component sizing from task/pressure specs.</li>
-        <li>Implemented load-sensing compensator and DCV control; migrated unstable custom code to Simulink blocks.</li>
-        <li>Set up power/efficiency accounting and diagnostics for solver behavior.</li>
-      </ul>
-    </div></section>
+    <!-- Method -->
+    <section class="section">
+      <div class="container">
+        <h2>Method</h2>
+        <ol class="stack">
+          <li><strong>Component sizing:</strong> Boom cylinder selected (≈4″ bore, 2.25″ rod, ≈27.4″ stroke) to meet force targets at ≤250 bar;
+              swing motor sized from torque &amp; gear ratio; pump displacement from combined peak flows.</li>
+          <li><strong>Modeling approach:</strong> Chambers via pressure build-up; DCV and compensator as variable orifices; compensator regulates Δp across the DCV using proportional control.</li>
+          <li><strong>Integration:</strong> Pump pressure from cumulative flows; separate subsystems for boom and swing; monitored flows/pressures and computed power/efficiency.</li>
+        </ol>
 
-    <section class="section"><div class="container">
-      <h2>Technical Skills Used</h2>
-      <ul class="tag-list">
-        <li>Hydraulic system design</li>
-        <li>MATLAB / Simulink</li>
-        <li>Load-sensing & pre-compensation</li>
-        <li>DCV logic & controls</li>
-      </ul>
-    </div></section>
+        <div class="grid">
+          <figure>
+            <picture>
+              <img
+                src="../assets/images/me_535_project_2_circuit.jpg"
+                alt="Annotated hydraulic circuit: variable-displacement pump with load-sensing compensator, DCVs feeding boom cylinder and swing motor with shuttle valve LS logic"
+                loading="lazy" decoding="async" width="1200" height="1130" />
+            </picture>
+            <figcaption>Annotated circuit with load-sensing paths and DCV flow directions for boom and swing.</figcaption>
+          </figure>
+
+          <figure>
+            <picture>
+              <img
+                src="../assets/images/me_535_project_2_flowchart.jpg"
+                alt="Block-level flowchart of subsystems and signals: pumps, hydraulic lines, actuators, and kinematic models"
+                loading="lazy" decoding="async" width="1200" height="970" />
+            </picture>
+            <figcaption>Block-interaction diagram used to define subsystem interfaces and signals.</figcaption>
+          </figure>
+        </div>
+
+        <div class="grid">
+          <figure>
+            <picture>
+              <img
+                src="../assets/images/me_535_project_2_control_logic.jpg"
+                alt="Simulink compensator control logic that maintains the pressure drop across the DCV"
+                loading="lazy" decoding="async" width="1200" height="350" />
+            </picture>
+            <figcaption>Compensator control: maintains target Δp across the DCV by modulating pump swash.</figcaption>
+          </figure>
+
+          <figure>
+            <picture>
+              <img
+                src="../assets/images/me_535_project_2_simulink.jpg"
+                alt="High-level Simulink model showing pump, compensator, DCV and actuator subsystems"
+                loading="lazy" decoding="async" width="1200" height="780" />
+            </picture>
+            <figcaption>High-level Simulink assembly of pump, control, DCV, and actuator subsystems.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Outcome -->
+    <section class="section">
+      <div class="container">
+        <h2>Outcome &amp; Learning</h2>
+        <ul class="stack">
+          <li>All <strong>subsystems</strong> (orifice, chamber, DCV, compensator) behaved as expected in isolation.</li>
+          <li>The <strong>integrated</strong> model initially exhibited stiffness (Δt≈1e-11 s); migrating from mixed MATLAB Function blocks to Simulink primitives improved robustness; proportional control chosen for stability.</li>
+          <li>Next steps: refine initial states, solver/tolerances, and block optimizations for tractable whole-system runs.</li>
+        </ul>
+
+        <figure>
+          <picture>
+            <img
+              src="../assets/images/me_535_project_2_results.jpg"
+              alt="Measured versus simulated swing motor speed vs time; close tracking validates the control and subsystem coupling"
+              loading="lazy" decoding="async" width="1200" height="495" />
+          </picture>
+          <figcaption>Validation example: simulated swing speed tracks measured data over a multi-command cycle.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Contributions -->
+    <section class="section">
+      <div class="container">
+        <h2>My Contributions</h2>
+        <ul class="stack">
+          <li>End-to-end system architecture and component sizing from task/pressure specs.</li>
+          <li>Implemented load-sensing compensator and DCV control; migrated unstable custom code to Simulink blocks.</li>
+          <li>Set up power/efficiency accounting and diagnostics for solver behavior.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section">
+      <div class="container">
+        <h2>Technical Skills Used</h2>
+        <ul class="tag-list">
+          <li>Hydraulic system design</li>
+          <li>MATLAB / Simulink</li>
+          <li>Load-sensing &amp; pre-compensation</li>
+          <li>DCV logic &amp; controls</li>
+        </ul>
+      </div>
+    </section>
   </main>
 
-  <footer class="site-footer"><div class="container"><p>&copy; <span id="year"></span> Ratnam Patel.</p></div></footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+  <footer class="site-footer">
+    <div class="container"><p>&copy; <span id="year"></span> Ratnam Patel.</p></div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

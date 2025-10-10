@@ -40,63 +40,69 @@
         </ul>
       </header>
 
+      <!-- HERO: Mesh -->
       <figure class="project-hero">
-        <picture>
-          <source srcset="../assets/images/acoustics_2.webp" type="image/webp" />
-          <img src="../assets/images/acoustics_2.jpg" alt="Structured–unstructured hybrid mesh around a D-shaped cylinder for aeroacoustics" width="1200" height="900" loading="lazy" decoding="async" />
-        </picture>
-        <figcaption>Computational mesh around the D-shaped cylinder (Gmsh).</figcaption>
+        <img
+          src="../assets/images/Acoustics_1.jpg"
+          alt="Hybrid structured–unstructured mesh around a D-shaped cylinder with wake refinement"
+          width="1200" height="900" loading="lazy" decoding="async" />
+        <figcaption>Computational mesh around the D-shaped cylinder (Gmsh) with near-wake refinement.</figcaption>
       </figure>
 
       <section>
         <h2>Objective</h2>
         <p>
           Investigate wake dynamics and associated acoustic signatures of a 2-D D-shaped cylinder in compressible flow using
-          OpenFOAM with LES, followed by post-processing in ParaView and frequency analysis in MATLAB. :contentReference[oaicite:0]{index=0}
+          OpenFOAM with LES, followed by ParaView post-processing and frequency analysis in MATLAB.
         </p>
       </section>
 
       <section>
         <h2>Methodology</h2>
         <ul>
-          <li><strong>Geometry & Mesh:</strong> Gmsh layout with refinement near the body; ≈193,560 nodes concentrated in the near-wake. :contentReference[oaicite:1]{index=1}</li>
-          <li><strong>Solver:</strong> <code>rhoPimpleFoam</code> (compressible), LES turbulence modeling; backward time scheme; Gauss-based spatial schemes. :contentReference[oaicite:2]{index=2}</li>
-          <li><strong>BCs (typical):</strong> Uniform inlet velocity; wave-transmissive pressure outlet; no-slip on the cylinder; 2-D “front/back” set to empty. :contentReference[oaicite:3]{index=3}</li>
-          <li><strong>Acoustic probe & analysis:</strong> Pressure probe in the wake; FFT of signal in MATLAB to obtain dominant tones and SPL. :contentReference[oaicite:4]{index=4}</li>
+          <li><strong>Geometry &amp; Mesh:</strong> Gmsh layout with boundary-layer and wake refinement (≈193k nodes concentrated downstream).</li>
+          <li><strong>Solver:</strong> <code>rhoPimpleFoam</code> (compressible), LES turbulence modeling; PIMPLE coupling; bounded Gauss schemes.</li>
+          <li><strong>Boundary conditions:</strong> Uniform inlet velocity, wave-transmissive pressure outlet, no-slip cylinder wall, 2-D “empty” front/back.</li>
+          <li><strong>Acoustics:</strong> Pressure probe in the wake; FFT of the signal to identify tones and estimate SPL.</li>
         </ul>
       </section>
 
       <section>
         <h2>Key Results</h2>
+
         <div class="figure-grid">
+          <!-- Time history (amplitude vs time) -->
           <figure>
-            <picture>
-              <source srcset="../assets/images/acoustics_1.webp" type="image/webp" />
-              <img src="../assets/images/acoustics_1.jpg" alt="Time history of wake pressure/lift coefficient showing vortex-shedding oscillations" loading="lazy" decoding="async" width="1200" height="900" />
-            </picture>
-            <figcaption>Wake pressure / lift-related signal vs time (oscillatory shedding). :contentReference[oaicite:5]{index=5}</figcaption>
+            <img
+              src="../assets/images/Acoustics_3.jpg"
+              alt="Time history of the wake pressure showing periodic oscillations from vortex shedding"
+              loading="lazy" decoding="async" width="1200" height="900" />
+            <figcaption>Time history of the wake pressure / lift-related signal over 1&nbsp;s showing periodic shedding.</figcaption>
           </figure>
+
+          <!-- FFT magnitude -->
           <figure>
-            <picture>
-              <source srcset="../assets/images/acoustics_3.webp" type="image/webp" />
-              <img src="../assets/images/acoustics_3.jpg" alt="FFT magnitude spectrum with dominant tone near 164 Hz" loading="lazy" decoding="async" width="1200" height="900" />
-            </picture>
-            <figcaption>FFT magnitude: dominant frequency ≈ 164&nbsp;Hz; SPL ≈ 87&nbsp;dB at the tone. :contentReference[oaicite:6]{index=6}</figcaption>
+            <img
+              src="../assets/images/Acoustics_2.jpg"
+              alt="Magnitude spectrum of the wake pressure with a dominant peak near 164 Hz"
+              loading="lazy" decoding="async" width="1200" height="900" />
+            <figcaption>FFT magnitude: dominant tone near ≈164&nbsp;Hz; narrowband peak indicates coherent vortex shedding.</figcaption>
           </figure>
         </div>
+
         <p>
-          The dominant shedding tone was identified near 164&nbsp;Hz. Using the cylinder diameter and free-stream velocity, the
-          computed Strouhal number was ≈0.271 (vs an assumed/benchmark value ≈0.238), consistent with periodic vortex shedding.
-          Far-field methods (e.g., Ffowcs Williams–Hawkings / Curle analogies) were noted as next steps for radiation estimates. :contentReference[oaicite:7]{index=7}
+          Using the probe signal, the dominant shedding tone was identified near 164&nbsp;Hz. With the cylinder diameter and free-stream
+          velocity, the corresponding Strouhal number was ≈0.27, consistent with canonical bluff-body wakes. Far-field prediction
+          (e.g., Curle / Ffowcs-Williams–Hawkings) is outlined as future work to convert near-field pressure to radiated SPL.
         </p>
       </section>
 
       <section>
         <h2>Takeaways</h2>
         <ul>
-          <li>LES captured coherent wake structures and their acoustic footprint.</li>
-          <li>Frequency content is dominated by a single shedding tone; SPL computed from band-passed signal.</li>
-          <li>Future work: implement FWH/Curle analogies for far-field sound prediction and compare with canonical cylinder data. :contentReference[oaicite:8]{index=8}</li>
+          <li>LES captured coherent wake structures and their acoustic signature.</li>
+          <li>A single dominant shedding tone governs the spectrum; bandwidth reflects wake stability.</li>
+          <li>Next steps: implement FWH/Curle analogies for far-field sound and compare against reference cylinder data.</li>
         </ul>
       </section>
     </article>
