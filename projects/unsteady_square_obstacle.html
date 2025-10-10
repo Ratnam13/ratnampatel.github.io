@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unsteady Flow Around a Square Obstacle | Ratnam Patel</title>
+
+  <meta name="description" content="Unsteady 2D incompressible Navier–Stokes simulation around a square obstacle using stabilized finite element methods in FreeFEM++, featuring SUPG/PSPG/LSIC stabilization, mesh independence, and Strouhal scaling." />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Unsteady Flow Around a Square Obstacle — FreeFEM++ FEM Study" />
+  <meta property="og:description" content="Residual-based stabilized FEM (SUPG/PSPG/LSIC), BDF2 time stepping, and wake analysis across Reynolds numbers." />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../index.html">Ratnam Patel</a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <h1>Unsteady Flow Around a Square Obstacle</h1>
+        <p class="lead">
+          A high-fidelity simulation of two-dimensional incompressible unsteady flow around a square obstacle
+          using stabilized finite element methods in <strong>FreeFEM++</strong>.  
+          The work focuses on the formulation, numerical stabilization, and physical interpretation of vortex shedding phenomena at moderate Reynolds numbers.
+        </p>
+        <figure>
+          <div class="ph ph--banner" data-ph="Wake visualization placeholder"></div>
+          <figcaption>Illustration: wake formation and periodic vortex shedding behind a square obstacle (placeholder).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Background and Motivation</h2>
+        <p>
+          The flow past bluff bodies represents a canonical benchmark for testing numerical stabilization schemes.
+          Unlike cylinder flows, the sharp edges of a square induce strong flow separation and unsteady recirculation zones,
+          making it an ideal configuration to evaluate stabilization strategies such as <strong>Streamline-Upwind Petrov–Galerkin (SUPG)</strong>,
+          <strong>Pressure-Stabilizing Petrov–Galerkin (PSPG)</strong>, and <strong>Least-Squares Incompressibility Constraint (LSIC)</strong>.
+        </p>
+        <p>
+          The goal of the study was to construct a solver capable of capturing periodic vortex shedding
+          and to extract characteristic parameters such as Strouhal number variation with Reynolds number.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Numerical Formulation</h2>
+        <ul class="stack">
+          <li>Governing equations: 2D incompressible unsteady Navier–Stokes, discretized via stabilized finite elements.</li>
+          <li>Weak form augmented by SUPG (for advection), PSPG (for pressure–velocity coupling), and LSIC (for continuity stabilization).</li>
+          <li>Temporal discretization: second-order backward differentiation (BDF2) for time accuracy.</li>
+          <li>Spatial discretization: triangular elements using Taylor–Hood (P2–P1) and P1b–P1 spaces.</li>
+          <li>Solver: semi-implicit scheme with sparse linear solver and adaptive τ-parameters based on local Reynolds scaling.</li>
+        </ul>
+        <figure>
+          <div class="ph ph--thumb" data-ph="Domain schematic placeholder"></div>
+          <figcaption>Domain and boundary conditions used in the square-obstacle simulation (placeholder).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Results and Validation</h2>
+        <p>
+          The solver successfully captured the onset of periodic vortex shedding for Reynolds numbers ranging from 50 to 400.
+          Validation against benchmark results confirmed accurate reproduction of wake frequency and pressure distribution.
+          Mesh independence studies demonstrated that a 15 k-element mesh offered an optimal trade-off between accuracy and cost.
+        </p>
+        <p>
+          The computed Strouhal numbers showed expected scaling trends, and the element-order study revealed that
+          low-order P1–P1 spaces exhibit pressure oscillations unless stabilization is applied.
+        </p>
+        <div class="grid">
+          <figure><div class="ph ph--thumb" data-ph="Pressure contours placeholder"></div><figcaption>Pressure contours and recirculation zones at Re = 200 (placeholder).</figcaption></figure>
+          <figure><div class="ph ph--thumb" data-ph="Vorticity field placeholder"></div><figcaption>Vorticity distribution highlighting alternating vortices (placeholder).</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Discussion and Insights</h2>
+        <ul class="stack">
+          <li><strong>Stabilization efficacy:</strong> SUPG/PSPG schemes eliminate non-physical pressure oscillations while preserving convective accuracy.</li>
+          <li><strong>Mesh effects:</strong> Spatial refinement primarily affects the wake’s wavelength and pressure gradients; temporal refinement influences phase accuracy.</li>
+          <li><strong>Physical realism:</strong> Flow transitions from steady to periodic behavior beyond Re ≈ 70, matching theoretical predictions for bluff-body wakes.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Key Findings</h2>
+        <ul class="stack">
+          <li>Validated stabilized FEM formulation for advection-dominated incompressible flow.</li>
+          <li>Captured vortex shedding frequency and wake asymmetry across increasing Reynolds numbers.</li>
+          <li>Demonstrated convergence of the pressure and velocity fields across element orders and mesh refinements.</li>
+          <li>Proposed a framework for Strouhal number extraction in time-resolved FreeFEM++ outputs.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>My Contributions</h2>
+        <ul class="stack">
+          <li>Formulated the full stabilized weak form in FreeFEM++ using SUPG, PSPG, and LSIC.</li>
+          <li>Implemented transient solvers and post-processing pipelines for pressure, velocity, and vorticity fields.</li>
+          <li>Performed mesh and Reynolds-number sweeps; analyzed wake patterns and non-dimensional scaling.</li>
+          <li>Documented solver stability and convergence properties in the final report.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Technical Skills Used</h2>
+        <ul class="tag-list">
+          <li>FreeFEM++ (Finite Element Modeling)</li>
+          <li>Stabilized FEM (SUPG/PSPG/LSIC)</li>
+          <li>Unsteady CFD Simulation</li>
+          <li>BDF2 Time Integration</li>
+          <li>Mesh Independence Analysis</li>
+          <li>Vorticity and Wake Dynamics</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Ratnam Patel.</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
