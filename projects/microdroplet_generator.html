@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CFD Simulation for Microdroplet Generator | Ratnam Patel</title>
+
+  <meta name="description" content="Simulation of microdroplet generation in a flow-focusing microfluidic device. Regime mapping (squeezing, dripping, jetting) via velocity-ratio and Capillary number; controlled coalescence and size prediction." />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="CFD Simulation for Microdroplet Generator" />
+  <meta property="og:description" content="Multiphase CFD of water–oil microflows; regime transitions and droplet sizing using non-dimensional analysis." />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a class="brand" href="../index.html">Ratnam Patel</a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+          <li>
+            <button id="theme-toggle" class="button ghost" type="button" aria-pressed="false" aria-label="Toggle dark mode">
+              <span id="theme-toggle-icon" aria-hidden="true">🌙</span>
+              <span class="sr-only">Toggle dark mode</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Title / Hero -->
+    <section class="section" aria-labelledby="title">
+      <div class="container hero">
+        <h1 id="title">CFD Simulation for Microdroplet Generator</h1>
+        <p class="lead">
+          Multiphase CFD of a flow-focusing microfluidic device producing castor-oil droplets in a water
+          carrier. I mapped regime transitions (squeezing → dripping → jetting) by varying the
+          continuous-to-dispersed velocity ratio and analyzed droplet size via Capillary-number trends.
+        </p>
+        <figure class="hero-media">
+          <div class="ph ph--banner" data-ph="Flow-focusing junction and droplet train (placeholder)"></div>
+          <figcaption>Schematic of a flow-focusing microchannel generating a periodic droplet train (placeholder).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="section" aria-labelledby="summary">
+      <div class="container">
+        <h2 id="summary">Project Summary</h2>
+        <p>
+          The study explores controlled droplet formation in microchannels using immiscible fluids
+          (water continuous phase, castor-oil dispersed). By sweeping inlet velocities and geometry
+          refinements, I established a stable dripping regime and demonstrated tunable droplet size
+          and coalescence behavior consistent with literature-reported Capillary-number scaling.
+        </p>
+        <ul class="meta">
+          <li>Domain: Microfluidics (lab-on-chip)</li>
+          <li>Physics: Multiphase laminar flow; interfacial tension</li>
+          <li>Goal: Stable generation + predictable droplet size</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Background -->
+    <section class="section" aria-labelledby="background">
+      <div class="container">
+        <h2 id="background">Background &amp; Governing Physics</h2>
+        <p>
+          Droplet breakup arises from the competition between viscous shear and surface tension.
+          The non-dimensional <em>Capillary number</em>, \( Ca = \mu U / \sigma \), captures this balance
+          for the continuous phase. As \( Ca \) increases (or as the water-to-oil velocity ratio rises),
+          droplet diameter decreases and the regime shifts from squeezing to dripping and eventually jetting.
+        </p>
+        <ul class="tag-list" aria-label="Key concepts">
+          <li>Capillary number</li>
+          <li>Interfacial tension</li>
+          <li>Flow-focusing junctions</li>
+          <li>Regime transitions</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Method -->
+    <section class="section" aria-labelledby="method">
+      <div class="container">
+        <h2 id="method">Method &amp; Numerical Setup</h2>
+        <ol class="stack">
+          <li><strong>Geometry:</strong> Flow-focusing junction; 2D and 3D variants tested to evaluate stability and cost.</li>
+          <li><strong>Fluids:</strong> Water (continuous), castor oil (dispersed); material properties set to representative values for microflows.</li>
+          <li><strong>Inlets:</strong> Velocity-specified; swept water:oil ratios to modulate \( Ca \) and shear.</li>
+          <li><strong>Solver:</strong> Laminar, multiphase CFD with interface-capturing; mesh refined at the junction and outlet throat.</li>
+          <li><strong>Outputs:</strong> Droplet diameter, spacing, regime identification; coalescence control via flow-rate timing.</li>
+        </ol>
+        <div class="grid">
+          <figure>
+            <div class="ph ph--thumb" data-ph="Microchannel geometry & mesh (placeholder)"></div>
+            <figcaption>Microchannel geometry with refined junction mesh (placeholder).</figcaption>
+          </figure>
+          <figure>
+            <div class="ph ph--thumb" data-ph="Boundary conditions & inlets (placeholder)"></div>
+            <figcaption>Boundary conditions and inlet specification (placeholder).</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Observations -->
+    <section class="section" aria-labelledby="obs">
+      <div class="container">
+        <h2 id="obs">Simulation Observations</h2>
+        <ul class="stack">
+          <li><strong>3D trials:</strong> Early configurations showed backflow/instability at the outlet; corrected via outlet resizing and refined meshing.</li>
+          <li><strong>2D stabilization:</strong> Stable co-flow achieved; droplet formation required lowering the dispersed-phase velocity.</li>
+          <li><strong>Dripping regime:</strong> Water:oil ≈ 5:1 yielded periodic breakup with droplet diameter ~0.2&nbsp;mm and consistent spacing.</li>
+          <li><strong>Controlled coalescence:</strong> Staged flow-rate changes merged two microdroplets into a larger one reliably.</li>
+        </ul>
+        <div class="grid">
+          <figure><div class="ph ph--thumb" data-ph="Droplet train (placeholder)"></div><figcaption>Periodic droplet train in the dripping regime (placeholder).</figcaption></figure>
+          <figure><div class="ph ph--thumb" data-ph="Controlled coalescence (placeholder)"></div><figcaption>Programmed coalescence of two droplets into one (placeholder).</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="section" aria-labelledby="results">
+      <div class="container">
+        <h2 id="results">Parametric Results</h2>
+        <p>
+          Increasing the continuous-phase velocity (or \( Ca \)) reduced the droplet diameter and
+          shortened spacing until the onset of jetting. Representative cases:
+        </p>
+        <ul class="meta">
+          <li>Water:Oil = 3:1 → \( d \approx 0.3 \) mm (dripping)</li>
+          <li>Water:Oil = 5:1 → \( d \approx 0.2 \) mm (stable dripping / early jetting)</li>
+        </ul>
+        <figure>
+          <div class="ph ph--thumb" data-ph="Regime map vs velocity ratio (placeholder)"></div>
+          <figcaption>Regime identification vs. velocity ratio / Capillary number (placeholder).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Contributions -->
+    <section class="section" aria-labelledby="contrib">
+      <div class="container">
+        <h2 id="contrib">My Contributions</h2>
+        <ul class="stack">
+          <li>Built and refined microchannel geometries; stabilized outlet and junction meshing.</li>
+          <li>Configured multiphase solver and boundary conditions; executed velocity-ratio sweeps.</li>
+          <li>Characterized regimes and coalescence; extracted droplet size trends vs. \( Ca \).</li>
+          <li>Benchmarked behavior against literature trends for verification.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" aria-labelledby="skills">
+      <div class="container">
+        <h2 id="skills">Technical Skills Used</h2>
+        <ul class="tag-list">
+          <li>Multiphase CFD</li>
+          <li>Interface tracking &amp; droplet dynamics</li>
+          <li>Microchannel design &amp; meshing</li>
+          <li>Non-dimensional analysis (Capillary number)</li>
+          <li>Parametric studies &amp; validation</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Ratnam Patel.</p>
+    </div>
+  </footer>
+
+  <!-- Dark-mode toggle script (shared across pages) -->
+  <script>
+  (function(){
+    const STORAGE_KEY="theme",root=document.documentElement,btn=document.getElementById("theme-toggle"),ico=document.getElementById("theme-toggle-icon");
+    if(!btn||!ico)return;
+    function applyTheme(m){if(m==="dark"){root.classList.add("theme-dark");btn.setAttribute("aria-pressed","true");ico.textContent="🌞"}else{root.classList.remove("theme-dark");btn.setAttribute("aria-pressed","false");ico.textContent="🌙"}}
+    const s=localStorage.getItem(STORAGE_KEY);
+    if(s==="light"||s==="dark"){applyTheme(s)}else{const prefersDark=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;applyTheme(prefersDark?"dark":"light")}
+    btn.addEventListener("click",function(){const next=root.classList.contains("theme-dark")?"light":"dark";localStorage.setItem(STORAGE_KEY,next);applyTheme(next)});
+    if(!s&&window.matchMedia){window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",(e)=>applyTheme(e.matches?"dark":"light"))}
+  })();
+  </script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
