@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fluid–Acoustic Analysis of Flow Around a D-Shaped Cylinder</title>
+  <meta name="description" content="Undergraduate thesis: LES–OpenFOAM study of a D-shaped cylinder with acoustic post-processing in MATLAB." />
+  <link rel="canonical" href="../projects/acoustics_d_cylinder.html" />
+  <link rel="icon" href="../assets/images/favicon.ico" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a class="brand" href="../" aria-label="Home">Ratnam Patel</a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="../#about">About</a></li>
+          <li><a href="../#skills">Skills</a></li>
+          <li><a href="../#projects">Projects</a></li>
+          <li><a href="../#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <article class="project-page">
+      <header class="project-header">
+        <h1>Fluid–Acoustic Analysis of Flow Around a D-Shaped Cylinder</h1>
+        <p class="subtitle">Undergraduate thesis — OpenFOAM LES simulation with acoustic post-processing</p>
+        <ul class="meta meta-inline">
+          <li>OpenFOAM (rhoPimpleFoam, LES)</li>
+          <li>Gmsh</li>
+          <li>ParaView</li>
+          <li>MATLAB</li>
+        </ul>
+      </header>
+
+      <figure class="project-hero">
+        <picture>
+          <source srcset="../assets/images/acoustics_2.webp" type="image/webp" />
+          <img src="../assets/images/acoustics_2.jpg" alt="Structured–unstructured hybrid mesh around a D-shaped cylinder for aeroacoustics" width="1200" height="900" loading="lazy" decoding="async" />
+        </picture>
+        <figcaption>Computational mesh around the D-shaped cylinder (Gmsh).</figcaption>
+      </figure>
+
+      <section>
+        <h2>Objective</h2>
+        <p>
+          Investigate wake dynamics and associated acoustic signatures of a 2-D D-shaped cylinder in compressible flow using
+          OpenFOAM with LES, followed by post-processing in ParaView and frequency analysis in MATLAB. :contentReference[oaicite:0]{index=0}
+        </p>
+      </section>
+
+      <section>
+        <h2>Methodology</h2>
+        <ul>
+          <li><strong>Geometry & Mesh:</strong> Gmsh layout with refinement near the body; ≈193,560 nodes concentrated in the near-wake. :contentReference[oaicite:1]{index=1}</li>
+          <li><strong>Solver:</strong> <code>rhoPimpleFoam</code> (compressible), LES turbulence modeling; backward time scheme; Gauss-based spatial schemes. :contentReference[oaicite:2]{index=2}</li>
+          <li><strong>BCs (typical):</strong> Uniform inlet velocity; wave-transmissive pressure outlet; no-slip on the cylinder; 2-D “front/back” set to empty. :contentReference[oaicite:3]{index=3}</li>
+          <li><strong>Acoustic probe & analysis:</strong> Pressure probe in the wake; FFT of signal in MATLAB to obtain dominant tones and SPL. :contentReference[oaicite:4]{index=4}</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Key Results</h2>
+        <div class="figure-grid">
+          <figure>
+            <picture>
+              <source srcset="../assets/images/acoustics_1.webp" type="image/webp" />
+              <img src="../assets/images/acoustics_1.jpg" alt="Time history of wake pressure/lift coefficient showing vortex-shedding oscillations" loading="lazy" decoding="async" width="1200" height="900" />
+            </picture>
+            <figcaption>Wake pressure / lift-related signal vs time (oscillatory shedding). :contentReference[oaicite:5]{index=5}</figcaption>
+          </figure>
+          <figure>
+            <picture>
+              <source srcset="../assets/images/acoustics_3.webp" type="image/webp" />
+              <img src="../assets/images/acoustics_3.jpg" alt="FFT magnitude spectrum with dominant tone near 164 Hz" loading="lazy" decoding="async" width="1200" height="900" />
+            </picture>
+            <figcaption>FFT magnitude: dominant frequency ≈ 164&nbsp;Hz; SPL ≈ 87&nbsp;dB at the tone. :contentReference[oaicite:6]{index=6}</figcaption>
+          </figure>
+        </div>
+        <p>
+          The dominant shedding tone was identified near 164&nbsp;Hz. Using the cylinder diameter and free-stream velocity, the
+          computed Strouhal number was ≈0.271 (vs an assumed/benchmark value ≈0.238), consistent with periodic vortex shedding.
+          Far-field methods (e.g., Ffowcs Williams–Hawkings / Curle analogies) were noted as next steps for radiation estimates. :contentReference[oaicite:7]{index=7}
+        </p>
+      </section>
+
+      <section>
+        <h2>Takeaways</h2>
+        <ul>
+          <li>LES captured coherent wake structures and their acoustic footprint.</li>
+          <li>Frequency content is dominated by a single shedding tone; SPL computed from band-passed signal.</li>
+          <li>Future work: implement FWH/Curle analogies for far-field sound prediction and compare with canonical cylinder data. :contentReference[oaicite:8]{index=8}</li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Ratnam Patel. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
