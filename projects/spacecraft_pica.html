@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CFD Analysis of Re-Entry Spacecraft with PICA TPS | Ratnam Patel</title>
+
+  <meta name="description" content="Density-based transient CFD of a re-entry capsule with Phenolic Impregnated Carbon Ablator (PICA) tiles: geometry & meshing, hypersonic setup, and velocity/temperature field results." />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="CFD Analysis of Re-Entry Spacecraft with PICA TPS" />
+  <meta property="og:description" content="Hypersonic external flow over a blunt body with PICA thermal-protection tiles; density-based solver, Spalart–Allmaras turbulence, and temperature/streamline analysis." />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a class="brand" href="../index.html">Ratnam Patel</a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+          <li>
+            <button id="theme-toggle" class="button ghost" type="button" aria-pressed="false" aria-label="Toggle dark mode">
+              <span id="theme-toggle-icon" aria-hidden="true">🌙</span>
+              <span class="sr-only">Toggle dark mode</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Title / Hero -->
+    <section class="section" aria-labelledby="title">
+      <div class="container hero">
+        <h1 id="title">CFD Analysis of Re-Entry Spacecraft with PICA TPS</h1>
+        <p class="lead">
+          Density-based transient CFD of hypersonic external flow over a blunt-body capsule outfitted
+          with Phenolic Impregnated Carbon Ablator (PICA) tiles. I modeled the coupled fluid–solid
+          domains, generated quality meshes per region, and analyzed velocity streamlines and
+          temperature fields under re-entry conditions. :contentReference[oaicite:1]{index=1}
+        </p>
+        <figure class="hero-media">
+          <div class="ph ph--banner" data-ph="Hypersonic flow around blunt capsule (placeholder)"></div>
+          <figcaption>Hypersonic external flow with a detached bow shock around a blunt capsule (placeholder).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="section" aria-labelledby="summary">
+      <div class="container">
+        <h2 id="summary">Project Summary</h2>
+        <p>
+          The analysis evaluates PICA-tiled thermal protection on a simplified re-entry geometry under
+          high-speed air flow. A multi-domain model (outer fluid, inner tile layer, and internal solid)
+          was meshed with region-specific resolutions and solved using a density-based transient scheme
+          with Spalart–Allmaras turbulence to capture hypersonic features. Post-processing focused on
+          velocity streamlines over the tiles and temperature distributions on the forebody. :contentReference[oaicite:2]{index=2}
+        </p>
+        <ul class="meta">
+          <li>TPS: PICA tiles (ρ=0.32 g/cc, k≈0.29 W·m⁻¹·K⁻¹, c<sub>p</sub>≈2.1 kJ·kg⁻¹·K⁻¹)</li>
+          <li>Flow: hypersonic air (ideal gas, Sutherland viscosity)</li>
+          <li>Solver: density-based, transient; turbulence: Spalart–Allmaras</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Background & Objectives -->
+    <section class="section" aria-labelledby="background">
+      <div class="container">
+        <h2 id="background">Background &amp; Objectives</h2>
+        <p>
+          Re-entry vehicles experience extreme aerodynamic heating; Thermal Protection Systems (TPS)
+          such as PICA must reject or absorb heat to maintain structural integrity. The objective was
+          to simulate external hypersonic flow over a simplified capsule and characterize velocity and
+          temperature fields with PICA tiles applied to the forebody. :contentReference[oaicite:3]{index=3}
+        </p>
+      </div>
+    </section>
+
+    <!-- Geometry & Materials -->
+    <section class="section" aria-labelledby="geom">
+      <div class="container">
+        <h2 id="geom">Geometry &amp; Materials</h2>
+        <p>
+          Three domains were constructed in ANSYS DesignModeler using boolean operations: an
+          outer fluid domain (2&nbsp;m × 1&nbsp;m × 1&nbsp;m), an inner “tile” domain
+          (0.3&nbsp;m cube) representing the PICA layer, and an interior solid cube
+          (0.18&nbsp;m) representing the payload enclosure. Air was assigned to the fluid;
+          the tile layer used PICA properties; the interior solid used aluminum. :contentReference[oaicite:4]{index=4}
+        </p>
+        <div class="grid">
+          <figure><div class="ph ph--thumb" data-ph="Domain breakdown (placeholder)"></div><figcaption>Outer fluid, PICA tile layer, and inner solid domains (placeholder).</figcaption></figure>
+          <figure><div class="ph ph--thumb" data-ph="Material assignment (placeholder)"></div><figcaption>Air (ideal gas), PICA tiles, and aluminum payload block (placeholder).</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Meshing -->
+    <section class="section" aria-labelledby="mesh">
+      <div class="container">
+        <h2 id="mesh">Meshing Strategy</h2>
+        <p>
+          Structured/quad-dominant meshing with progressively finer element sizing near the capsule was
+          used to resolve shock and boundary-layer gradients. Representative settings:
+          outer domain Δ≈1&nbsp;cm, tile layer Δ≈5&nbsp;mm, inner solid Δ≈1&nbsp;mm.
+          Mesh metrics: orthogonal quality &gt; 0.8 on the outer domain; low skewness overall. :contentReference[oaicite:5]{index=5}
+        </p>
+        <div class="grid">
+          <figure><div class="ph ph--thumb" data-ph="Outer-domain mesh (placeholder)"></div><figcaption>Outer flow mesh with refinement toward the forebody (placeholder).</figcaption></figure>
+          <figure><div class="ph ph--thumb" data-ph="Tile & solid mesh (placeholder)"></div><figcaption>Refined mesh in the tile layer and inner solid (placeholder).</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Setup -->
+    <section class="section" aria-labelledby="setup">
+      <div class="container">
+        <h2 id="setup">Hypersonic CFD Setup</h2>
+        <ul class="stack">
+          <li><strong>Flow conditions:</strong> Inlet air velocity ≈ 12,500&nbsp;m·s⁻¹; density-based transient solver for hypersonic compressibility. :contentReference[oaicite:6]{index=6}</li>
+          <li><strong>Thermal boundary:</strong> Front face of the tile domain at 2800&nbsp;°C; initial inner face ≈ 50&nbsp;°C. :contentReference[oaicite:7]{index=7}</li>
+          <li><strong>Turbulence:</strong> Spalart–Allmaras for high-speed external aerodynamics. :contentReference[oaicite:8]{index=8}</li>
+          <li><strong>Models:</strong> Ideal-gas air with Sutherland viscosity; coupled fluid–solid energy transfer across interfaces. :contentReference[oaicite:9]{index=9}</li>
+        </ul>
+        <figure>
+          <div class="ph ph--thumb" data-ph="Boundary conditions (placeholder)"></div>
+          <figcaption>Inlet, thermal, and wall boundary conditions for the hypersonic case (placeholder).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="section" aria-labelledby="results">
+      <div class="container">
+        <h2 id="results">Results</h2>
+        <ul class="stack">
+          <li><strong>Velocity streamlines:</strong> Blunt-body flowfield with bow-shock-like behavior and expected deflection over the tiles; realistic external pattern achieved once the inner domain was treated as solid. :contentReference[oaicite:10]{index=10}</li>
+          <li><strong>Temperature contours:</strong> Forebody temperatures reported over the 50–70&nbsp;°C range for the displayed case, noting deviations from earlier work due to changed inner-domain and boundary assumptions. :contentReference[oaicite:11]{index=11}</li>
+        </ul>
+        <div class="grid">
+          <figure><div class="ph ph--thumb" data-ph="Velocity streamlines (placeholder)"></div><figcaption>Velocity streamlines over the forebody tiles (placeholder).</figcaption></figure>
+          <figure><div class="ph ph--thumb" data-ph="Temperature contours (placeholder)"></div><figcaption>Surface temperature contours on the front face (placeholder).</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Findings -->
+    <section class="section" aria-labelledby="findings">
+      <div class="container">
+        <h2 id="findings">Key Findings</h2>
+        <ul class="stack">
+          <li>PICA offers effective thermal protection under the modeled hypersonic condition; ablation physics were not included and would further increase realism. :contentReference[oaicite:12]{index=12}</li>
+          <li>Treating the inner domain as solid (tiles) produces a physically consistent external flow pattern over the forebody. :contentReference[oaicite:13]{index=13}</li>
+          <li>Geometric fidelity (e.g., domed forebody) is expected to improve quantitative agreement with canonical re-entry data in future runs. :contentReference[oaicite:14]{index=14}</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contributions -->
+    <section class="section" aria-labelledby="contrib">
+      <div class="container">
+        <h2 id="contrib">My Contributions</h2>
+        <ul class="stack">
+          <li>Constructed multi-domain geometry and assigned air/PICA/aluminum material properties.</li>
+          <li>Meshed each domain with resolution targeted to shock and thermal gradients; verified quality.</li>
+          <li>Configured density-based transient solver with Spalart–Allmaras turbulence and thermal BCs.</li>
+          <li>Post-processed velocity and temperature fields; compared with prior setups and noted model-assumption impacts.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" aria-labelledby="skills">
+      <div class="container">
+        <h2 id="skills">Technical Skills Used</h2>
+        <ul class="tag-list">
+          <li>ANSYS Workbench / Fluent</li>
+          <li>Density-Based Transient CFD</li>
+          <li>Spalart–Allmaras Turbulence</li>
+          <li>Thermal Protection Systems (PICA)</li>
+          <li>Multi-domain Meshing &amp; Interfaces</li>
+          <li>Hypersonic External Aerodynamics</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Ratnam Patel.</p>
+    </div>
+  </footer>
+
+  <!-- Dark-mode toggle (shared) -->
+  <script>
+  (function(){
+    const STORAGE_KEY="theme",root=document.documentElement,btn=document.getElementById("theme-toggle"),ico=document.getElementById("theme-toggle-icon");
+    if(!btn||!ico)return;
+    function applyTheme(m){if(m==="dark"){root.classList.add("theme-dark");btn.setAttribute("aria-pressed","true");ico.textContent="🌞"}else{root.classList.remove("theme-dark");btn.setAttribute("aria-pressed","false");ico.textContent="🌙"}}
+    const s=localStorage.getItem(STORAGE_KEY);
+    if(s==="light"||s==="dark"){applyTheme(s)}else{const prefersDark=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;applyTheme(prefersDark?"dark":"light")}
+    btn.addEventListener("click",function(){const next=root.classList.contains("theme-dark")?"light":"dark";localStorage.setItem(STORAGE_KEY,next);applyTheme(next)});
+    if(!s&&window.matchMedia){window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",(e)=>applyTheme(e.matches?"dark":"light"))}
+  })();
+  </script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
