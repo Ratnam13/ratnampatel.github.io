@@ -29,29 +29,36 @@
   </header>
 
   <main id="main">
+    <!-- HERO -->
     <section class="section">
       <div class="container">
         <h1>Unsteady Flow Around a Square Obstacle</h1>
         <p class="lead">
           A high-fidelity simulation of two-dimensional incompressible unsteady flow around a square obstacle
-          using stabilized finite element methods in <strong>FreeFEM++</strong>.  
-          The work focuses on the formulation, numerical stabilization, and physical interpretation of vortex shedding phenomena at moderate Reynolds numbers.
+          using stabilized finite element methods in <strong>FreeFEM++</strong>.
+          The work focuses on the formulation, numerical stabilization, and physical interpretation of vortex shedding at moderate Reynolds numbers.
         </p>
-        <figure>
-          <div class="ph ph--banner" data-ph="Wake visualization placeholder"></div>
-          <figcaption>Illustration: wake formation and periodic vortex shedding behind a square obstacle (placeholder).</figcaption>
+        <figure class="hero-media">
+          <img
+            src="../assets/images/me_614_main.jpg"
+            alt="Vorticity field showing alternating red/blue vortices shed from a square obstacle"
+            width="1200" height="900" loading="lazy" decoding="async" />
+          <figcaption>Snapshot of the unsteady wake: alternating-sign vortices convecting downstream of the square.</figcaption>
         </figure>
       </div>
     </section>
 
+    <!-- BACKGROUND -->
     <section class="section">
       <div class="container">
         <h2>Background and Motivation</h2>
         <p>
           The flow past bluff bodies represents a canonical benchmark for testing numerical stabilization schemes.
           Unlike cylinder flows, the sharp edges of a square induce strong flow separation and unsteady recirculation zones,
-          making it an ideal configuration to evaluate stabilization strategies such as <strong>Streamline-Upwind Petrov–Galerkin (SUPG)</strong>,
-          <strong>Pressure-Stabilizing Petrov–Galerkin (PSPG)</strong>, and <strong>Least-Squares Incompressibility Constraint (LSIC)</strong>.
+          making it an ideal configuration to evaluate stabilization strategies such as
+          <strong>Streamline-Upwind Petrov–Galerkin (SUPG)</strong>,
+          <strong>Pressure-Stabilizing Petrov–Galerkin (PSPG)</strong>, and
+          <strong>Least-Squares Incompressibility Constraint (LSIC)</strong>.
         </p>
         <p>
           The goal of the study was to construct a solver capable of capturing periodic vortex shedding
@@ -60,77 +67,100 @@
       </div>
     </section>
 
+    <!-- NUMERICS -->
     <section class="section">
       <div class="container">
         <h2>Numerical Formulation</h2>
         <ul class="stack">
           <li>Governing equations: 2D incompressible unsteady Navier–Stokes, discretized via stabilized finite elements.</li>
-          <li>Weak form augmented by SUPG (for advection), PSPG (for pressure–velocity coupling), and LSIC (for continuity stabilization).</li>
-          <li>Temporal discretization: second-order backward differentiation (BDF2) for time accuracy.</li>
+          <li>Weak form augmented by SUPG (advection), PSPG (pressure–velocity coupling), and LSIC (continuity stabilization).</li>
+          <li>Temporal discretization: second-order backward differentiation (BDF2).</li>
           <li>Spatial discretization: triangular elements using Taylor–Hood (P2–P1) and P1b–P1 spaces.</li>
-          <li>Solver: semi-implicit scheme with sparse linear solver and adaptive τ-parameters based on local Reynolds scaling.</li>
+          <li>Solver: semi-implicit scheme with sparse linear solver; τ-parameters scaled with local Reynolds number.</li>
         </ul>
-        <figure>
-          <div class="ph ph--thumb" data-ph="Domain schematic placeholder"></div>
-          <figcaption>Domain and boundary conditions used in the square-obstacle simulation (placeholder).</figcaption>
-        </figure>
       </div>
     </section>
 
+    <!-- RESULTS -->
     <section class="section">
       <div class="container">
         <h2>Results and Validation</h2>
         <p>
-          The solver successfully captured the onset of periodic vortex shedding for Reynolds numbers ranging from 50 to 400.
-          Validation against benchmark results confirmed accurate reproduction of wake frequency and pressure distribution.
-          Mesh independence studies demonstrated that a 15 k-element mesh offered an optimal trade-off between accuracy and cost.
+          The solver captures the onset of periodic vortex shedding for Reynolds numbers ranging from 50 to 400.
+          Mesh-independence indicates ≈15k elements are sufficient for stable shedding frequency and pressure distribution.
+          The Strouhal trends align with literature for bluff-body wakes.
         </p>
-        <p>
-          The computed Strouhal numbers showed expected scaling trends, and the element-order study revealed that
-          low-order P1–P1 spaces exhibit pressure oscillations unless stabilization is applied.
-        </p>
+
         <div class="grid">
-          <figure><div class="ph ph--thumb" data-ph="Pressure contours placeholder"></div><figcaption>Pressure contours and recirculation zones at Re = 200 (placeholder).</figcaption></figure>
-          <figure><div class="ph ph--thumb" data-ph="Vorticity field placeholder"></div><figcaption>Vorticity distribution highlighting alternating vortices (placeholder).</figcaption></figure>
+          <figure>
+            <img
+              src="../assets/images/me_614_velocity.jpg"
+              alt="Velocity-magnitude contour maps near the square obstacle at successive instants"
+              width="1200" height="900" loading="lazy" decoding="async" />
+            <figcaption>Velocity magnitude evolution showing shear-layer roll-up and downstream convection.</figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="../assets/images/me_614_vorticity.jpg"
+              alt="Three panels of vorticity with red/blue anti-symmetric shedding from the square"
+              width="1200" height="900" loading="lazy" decoding="async" />
+            <figcaption>Vorticity at successive time instants; anti-symmetric shedding establishes the von Kármán street.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
+    <!-- DISCUSSION -->
     <section class="section">
       <div class="container">
         <h2>Discussion and Insights</h2>
         <ul class="stack">
-          <li><strong>Stabilization efficacy:</strong> SUPG/PSPG schemes eliminate non-physical pressure oscillations while preserving convective accuracy.</li>
-          <li><strong>Mesh effects:</strong> Spatial refinement primarily affects the wake’s wavelength and pressure gradients; temporal refinement influences phase accuracy.</li>
-          <li><strong>Physical realism:</strong> Flow transitions from steady to periodic behavior beyond Re ≈ 70, matching theoretical predictions for bluff-body wakes.</li>
+          <li><strong>Stabilization efficacy:</strong> SUPG/PSPG suppress non-physical pressure oscillations while preserving convective accuracy.</li>
+          <li><strong>Mesh effects:</strong> Spatial refinement primarily affects wavelength and pressure gradients; temporal refinement tunes phase accuracy.</li>
+          <li><strong>Physical realism:</strong> Transition from steady to periodic behavior beyond Re ≈ 70, consistent with bluff-body theory.</li>
         </ul>
+
+        <figure>
+          <img
+            src="../assets/images/me_614_velocity_circular.jpg"
+            alt="Comparison grids of stabilized vs original Navier–Stokes solution on a circular benchmark"
+            width="1200" height="900" loading="lazy" decoding="async" />
+          <figcaption>
+            Stabilization comparison on a circular benchmark used during solver verification:
+            stabilized (left) vs. original (right) formulation. The stabilized scheme damps spurious oscillations while retaining structures.
+          </figcaption>
+        </figure>
       </div>
     </section>
 
+    <!-- FINDINGS -->
     <section class="section">
       <div class="container">
         <h2>Key Findings</h2>
         <ul class="stack">
           <li>Validated stabilized FEM formulation for advection-dominated incompressible flow.</li>
-          <li>Captured vortex shedding frequency and wake asymmetry across increasing Reynolds numbers.</li>
-          <li>Demonstrated convergence of the pressure and velocity fields across element orders and mesh refinements.</li>
-          <li>Proposed a framework for Strouhal number extraction in time-resolved FreeFEM++ outputs.</li>
+          <li>Captured vortex-shedding frequency and wake asymmetry across increasing Reynolds numbers.</li>
+          <li>Demonstrated convergence of pressure and velocity fields across element orders and meshes.</li>
+          <li>Proposed a robust pipeline for Strouhal extraction from time-resolved fields in FreeFEM++.</li>
         </ul>
       </div>
     </section>
 
+    <!-- CONTRIBUTIONS -->
     <section class="section">
       <div class="container">
         <h2>My Contributions</h2>
         <ul class="stack">
-          <li>Formulated the full stabilized weak form in FreeFEM++ using SUPG, PSPG, and LSIC.</li>
-          <li>Implemented transient solvers and post-processing pipelines for pressure, velocity, and vorticity fields.</li>
+          <li>Formulated the full stabilized weak form in FreeFEM++ (SUPG/PSPG/LSIC).</li>
+          <li>Implemented transient solvers and post-processing for pressure, velocity, and vorticity.</li>
           <li>Performed mesh and Reynolds-number sweeps; analyzed wake patterns and non-dimensional scaling.</li>
-          <li>Documented solver stability and convergence properties in the final report.</li>
+          <li>Documented solver stability and convergence in the final report.</li>
         </ul>
       </div>
     </section>
 
+    <!-- SKILLS -->
     <section class="section">
       <div class="container">
         <h2>Technical Skills Used</h2>
